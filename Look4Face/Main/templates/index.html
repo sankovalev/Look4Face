@@ -2,22 +2,22 @@
 {% block main %}
 {% load staticfiles %}
 
-
 <div class="container">
-    <h1>jQuery Image Upload 
-        <small>with preview</small>
-    </h1>
-    <div class="avatar-upload">
-        <div class="avatar-edit">
-            <input type='file' id="imageUpload" accept=".png, .jpg, .jpeg" />
-            <label for="imageUpload"></label>
-        </div>
-        <div class="avatar-preview">
-            <div id="imagePreview" style="background-image: url(http://i.pravatar.cc/500?img=7);">
+    <h2 class="tm-block-title">Загрузите фотографию человека из LFW. На изображении может быть несколько лиц.</h2>
+    <div class="tm-avatar-container">
+        <div class="avatar-upload">
+            <div class="avatar-edit">
+                <input type='file' id="imageUpload" accept=".png, .jpg, .jpeg" />
+                <label for="imageUpload"></label>
+                
+            </div>
+            <div class="avatar-preview">
+                <div id="imagePreview" style="background-image: url({% static 'img/empty.png' %});">
+                </div>
             </div>
         </div>
+        <button class="btn btn-primary btn-block text-uppercase">Искать</button>
     </div>
 </div>
-
 
 {% endblock %}

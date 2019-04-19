@@ -51,3 +51,55 @@ WARNING:django.request:Not Found: /accounts.html
 WARNING:django.request:Not Found: /accounts.html
 WARNING:django.request:Not Found: /img/avatar.png
 WARNING:django.request:Not Found: /img/avatar.png
+ERROR:django.request:Internal Server Error: /
+Traceback (most recent call last):
+  File "/home/velavok/ML/DEEPLOM/WEB/lib/python3.6/site-packages/django/template/base.py", line 470, in parse
+    compile_func = self.tags[command]
+KeyError: '{%'
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/home/velavok/ML/DEEPLOM/WEB/lib/python3.6/site-packages/django/core/handlers/exception.py", line 34, in inner
+    response = get_response(request)
+  File "/home/velavok/ML/DEEPLOM/WEB/lib/python3.6/site-packages/django/core/handlers/base.py", line 115, in _get_response
+    response = self.process_exception_by_middleware(e, request)
+  File "/home/velavok/ML/DEEPLOM/WEB/lib/python3.6/site-packages/django/core/handlers/base.py", line 113, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "/home/velavok/ML/DEEPLOM/WEB/Look4Face/Main/views.py", line 17, in main
+    return render(request, 'index.html', context)
+  File "/home/velavok/ML/DEEPLOM/WEB/lib/python3.6/site-packages/django/shortcuts.py", line 36, in render
+    content = loader.render_to_string(template_name, context, request, using=using)
+  File "/home/velavok/ML/DEEPLOM/WEB/lib/python3.6/site-packages/django/template/loader.py", line 61, in render_to_string
+    template = get_template(template_name, using=using)
+  File "/home/velavok/ML/DEEPLOM/WEB/lib/python3.6/site-packages/django/template/loader.py", line 15, in get_template
+    return engine.get_template(template_name)
+  File "/home/velavok/ML/DEEPLOM/WEB/lib/python3.6/site-packages/django/template/backends/django.py", line 34, in get_template
+    return Template(self.engine.get_template(template_name), self)
+  File "/home/velavok/ML/DEEPLOM/WEB/lib/python3.6/site-packages/django/template/engine.py", line 143, in get_template
+    template, origin = self.find_template(template_name)
+  File "/home/velavok/ML/DEEPLOM/WEB/lib/python3.6/site-packages/django/template/engine.py", line 125, in find_template
+    template = loader.get_template(name, skip=skip)
+  File "/home/velavok/ML/DEEPLOM/WEB/lib/python3.6/site-packages/django/template/loaders/base.py", line 30, in get_template
+    contents, origin, origin.template_name, self.engine,
+  File "/home/velavok/ML/DEEPLOM/WEB/lib/python3.6/site-packages/django/template/base.py", line 156, in __init__
+    self.nodelist = self.compile_nodelist()
+  File "/home/velavok/ML/DEEPLOM/WEB/lib/python3.6/site-packages/django/template/base.py", line 194, in compile_nodelist
+    return parser.parse()
+  File "/home/velavok/ML/DEEPLOM/WEB/lib/python3.6/site-packages/django/template/base.py", line 478, in parse
+    raise self.error(token, e)
+  File "/home/velavok/ML/DEEPLOM/WEB/lib/python3.6/site-packages/django/template/base.py", line 476, in parse
+    compiled_result = compile_func(self, token)
+  File "/home/velavok/ML/DEEPLOM/WEB/lib/python3.6/site-packages/django/template/loader_tags.py", line 266, in do_extends
+    nodelist = parser.parse()
+  File "/home/velavok/ML/DEEPLOM/WEB/lib/python3.6/site-packages/django/template/base.py", line 478, in parse
+    raise self.error(token, e)
+  File "/home/velavok/ML/DEEPLOM/WEB/lib/python3.6/site-packages/django/template/base.py", line 476, in parse
+    compiled_result = compile_func(self, token)
+  File "/home/velavok/ML/DEEPLOM/WEB/lib/python3.6/site-packages/django/template/loader_tags.py", line 209, in do_block
+    nodelist = parser.parse(('endblock',))
+  File "/home/velavok/ML/DEEPLOM/WEB/lib/python3.6/site-packages/django/template/base.py", line 472, in parse
+    self.invalid_block_tag(token, command, parse_until)
+  File "/home/velavok/ML/DEEPLOM/WEB/lib/python3.6/site-packages/django/template/base.py", line 528, in invalid_block_tag
+    get_text_list(["'%s'" % p for p in parse_until], 'or'),
+django.template.exceptions.TemplateSyntaxError: Invalid block tag on line 16: '{%', expected 'endblock'. Did you forget to register or load this tag?
