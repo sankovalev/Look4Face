@@ -1,0 +1,49 @@
+{% load staticfiles %}
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta http-equiv="X-UA-Compatible" content="ie=edge" />
+    <link rel="shortcut icon" type="image/png" href="{% static "favicon.ico" %}">
+    {% include "css_temp.html" %}
+  </head>
+
+  <body>
+    {% comment %} NAVIGATION {% endcomment %}
+    <nav class="navbar navbar-expand-xl">
+      <div class="container h-100">
+        <a class="navbar-brand" href="{% url 'Main Page' %}">
+          <h1 class="tm-site-title mb-0">Look<font color="#f5a623">4</font>Face</h1>
+        </a>
+        <button
+          class="navbar-toggler ml-auto mr-0"
+          type="button"
+          data-toggle="collapse"
+          data-target="#navbarSupportedContent"
+          aria-controls="navbarSupportedContent"
+          aria-expanded="false"
+          aria-label="Toggle navigation"
+        >
+          <i class="fas fa-bars tm-nav-icon"></i>
+        </button>
+      </div>
+    </nav>
+
+    {% comment %} CONTENT {% endcomment %}
+    {% block main %}
+    {% endblock %}
+
+    {% comment %} FOOTER {% endcomment %}
+    <footer class="tm-footer row tm-mt-small">
+        <div class="col-12 font-weight-light">
+          <p class="text-center text-white mb-0 px-4 small">
+            <a rel="nofollow noopener" href="https://github.com/sankovalev/Look4Face" class="tm-footer-link">Look4Face</a>
+          </p>
+        </div>
+    </footer> 
+
+    {% include "js_temp.html" %}
+  </body>
+
+</html>

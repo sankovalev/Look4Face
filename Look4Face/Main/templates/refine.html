@@ -1,0 +1,29 @@
+{% extends "base_temp.html" %}
+{% block main %}
+{% load staticfiles %}
+
+<div class="container">
+    <h2 align="center" class="tm-block-title">There are several faces on this photo! Please choose one.</h2>
+    <br>
+    <form enctype="multipart/form-data" name="new_face" method="POST" action="">{% csrf_token %}
+    <input type="hidden" name="refine" value="True">
+    <div class="row">
+        {% for face in faces_list %}
+            <div class='col text-center'>
+                <input onclick="enableButton()" type="radio" name="imagecrop" id="{{face}}" class="d-none imgbgchk" value="{{face}}">
+                <label for="{{face}}">
+                    <img src="/media/{{face}}">
+                    <div class="tick_container">
+                        <div class="tick">
+                            <i class="fa fa-check"></i>
+                        </div>
+                    </div>
+                </label>
+            </div>
+        {% endfor %}
+    </div>
+    <br>
+    <button class="btn btn-primary btn-block text-uppercase" id="searchbtn" disabled>Find similar</button>
+    </form>
+</div>
+{% endblock %}

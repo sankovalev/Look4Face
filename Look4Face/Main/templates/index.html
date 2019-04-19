@@ -1,0 +1,27 @@
+{% extends "base_temp.html" %}
+{% block main %}
+{% load staticfiles %}
+
+<div class="container">
+    <h2 align="center" class="tm-block-title">Load a photo of a person from LFW. The image may contain several faces.</h2>
+    <br>
+    <div class="tm-avatar-container">
+    <form enctype="multipart/form-data" name="new_face" method="POST" action="">{% csrf_token %}
+        <input type="hidden" name="refine" value="False">
+        <div class="avatar-upload">
+            <div class="avatar-edit">
+                <input type='file' id="imageUpload" name="photo" accept=".png, .jpg, .jpeg" />
+                <label for="imageUpload"></label>
+            </div>
+            <div class="avatar-preview">
+                <div id="imagePreview" style="background-image: url({% static 'img/empty.png' %});">
+                </div>
+            </div>
+        </div>
+    </div>
+    <br>
+    <button id="searchbtn" class="btn btn-primary btn-block text-uppercase" disabled>Find similar</button>
+    </form>
+</div>
+
+{% endblock %}

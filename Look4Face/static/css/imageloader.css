@@ -1,0 +1,132 @@
+body {
+  background: whitesmoke;
+  font-family: 'Open Sans', sans-serif;
+}
+.container {
+  max-width: 960px;
+  margin: 30px auto;
+  padding: 20px;
+}
+h1 {
+  font-size: 20px;
+  text-align: center;
+  margin: 20px 0 20px;
+}
+h1 small {
+  display: block;
+  font-size: 15px;
+  padding-top: 8px;
+  color: gray;
+}
+.avatar-upload {
+  position: relative;
+  max-width: 205px;
+  margin: 50px auto;
+}
+.avatar-upload .avatar-edit {
+  position: absolute;
+  right: -18px;
+  z-index: 1;
+  top: 0px;
+}
+.avatar-upload .avatar-edit input {
+  display: none;
+}
+.avatar-upload .avatar-edit input + label {
+  display: inline-block;
+  width: 224px;
+  height: 224px;
+  margin-bottom: 0;
+  border-radius: 100%;
+  background: transparent; /*#FFFFF*/
+  border: 1px solid transparent;
+  box-shadow: 0px 2px 4px 0px rgba(0, 0, 0, 0.12);
+  cursor: pointer;
+  font-weight: normal;
+  transition: all 0.2s ease-in-out;
+}
+.avatar-upload .avatar-edit input + label:hover {
+  background: transparent; /*#f1f1f1*/
+  border-color: transparent; /*#d6d6d6*/
+}
+.avatar-upload .avatar-edit input + label:after {
+  /* content: "\f2b9"; */
+  font-family: 'FontAwesome';
+  color: #757575;
+  position: absolute;
+  top: 10px;
+  left: 0;
+  right: 0;
+  text-align: center;
+  margin: auto;
+}
+.avatar-upload .avatar-preview {
+  width: 224px;
+  height: 224px;
+  position: relative;
+  border-radius: 100%;
+  border: 6px solid #F8F8F8;
+  box-shadow: 0px 2px 4px 0px rgba(0, 0, 0, 0.1);
+}
+.avatar-upload .avatar-preview > div {
+  width: 100%;
+  height: 100%;
+  border-radius: 100%;
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-position: center;
+}
+
+/* IMAGE RADIO */
+html,body{
+  min-height: 100vh;
+  min-width: 100vw;
+}
+.parent{
+  height: 100vh;
+}
+.parent>.row{
+  display: flex;
+  align-items: center;
+  height: 100%;
+}
+.col img{
+  height:112px;
+  width: 100%;
+  cursor: pointer;
+  transition: transform 1s;
+  object-fit: cover;
+}
+.col label{
+  overflow: hidden;
+  position: relative;
+}
+.imgbgchk:checked + label>.tick_container{
+  opacity: 1;
+}
+
+/*         aNIMATION */
+.imgbgchk:checked + label>img{
+  transform: scale(1.25);
+  opacity: 0.3;
+}
+.tick_container {
+  transition: .5s ease;
+  opacity: 0;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  -ms-transform: translate(-50%, -50%);
+  cursor: pointer;
+  text-align: center;
+}
+.tick {
+  background-color: #4CAF50;
+  color: white;
+  font-size: 16px;
+  padding: 6px 12px;
+  height: 40px;
+  width: 40px;
+  border-radius: 100%;
+}
