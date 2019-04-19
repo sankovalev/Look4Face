@@ -25,8 +25,11 @@ SECRET_KEY = '(o8&9^isejv2p%ebe3cx+c%v96w^z3)!wl7mn04+wk=$jw14b^'
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = []
+ALLOWED_HOSTS = ['*']
 
+# LOGIN_REDIRECT_URL = 'Main Page'
+# LOGOUT_REDIRECT_URL = 'Login Page'
+# LOGIN_URL = 'Login Page'
 
 # Application definition
 
@@ -40,6 +43,9 @@ INSTALLED_APPS = [
 ]
 
 MIDDLEWARE = [
+    #django_debug
+    # 'debug_toolbar.middleware.DebugToolbarMiddleware',
+    'django.middleware.cache.UpdateCacheMiddleware',
     'django.middleware.security.SecurityMiddleware',
     'django.contrib.sessions.middleware.SessionMiddleware',
     'django.middleware.common.CommonMiddleware',
@@ -47,7 +53,18 @@ MIDDLEWARE = [
     'django.contrib.auth.middleware.AuthenticationMiddleware',
     'django.contrib.messages.middleware.MessageMiddleware',
     'django.middleware.clickjacking.XFrameOptionsMiddleware',
+    'django.middleware.cache.FetchFromCacheMiddleware',
 ]
+
+# Key in `CACHES` dict
+CACHE_MIDDLEWARE_ALIAS = 'default'
+
+# Additional prefix for cache keys
+CACHE_MIDDLEWARE_KEY_PREFIX = ''
+
+# Cache key TTL in seconds
+CACHE_MIDDLEWARE_SECONDS = 600
+
 
 ROOT_URLCONF = 'Look4Face.urls'
 
