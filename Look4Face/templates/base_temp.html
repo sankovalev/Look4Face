@@ -12,7 +12,7 @@
     {% comment %} NAVIGATION {% endcomment %}
     <nav class="navbar navbar-expand-xl">
       <div class="container h-100">
-        <a class="navbar-brand" href="index.html">
+        <a class="navbar-brand" href="{% url 'Main Page' %}">
           <h1 class="tm-site-title mb-0">Look4Face</h1>
         </a>
         <button
@@ -67,8 +67,7 @@
         <div class="col-12 font-weight-light">
           <p class="text-center text-white mb-0 px-4 small">
             velavok
-            <hr>
-            Design: <a rel="nofollow noopener" href="https://templatemo.com" class="tm-footer-link">Template Mo</a>
+            {% comment %} Design: <a rel="nofollow noopener" href="https://templatemo.com" class="tm-footer-link">Template Mo</a> {% endcomment %}
         </p>
         </div>
     </footer> 
