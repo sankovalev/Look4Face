@@ -51,7 +51,7 @@ def main(request):
                 # there are no faces on the photo
                 # TODO: send message
             elif count == 1:
-                search(img, landmarks[0])
+                img = align_face(img, landmarks[0]) # cropped aligned face, ready for search
                 # ...
 
                 return render(request, 'results.html', context)
@@ -65,7 +65,9 @@ def main(request):
                 return render(request, 'refine.html', context)
         # SEARCH AFTER REFINING
         elif request.POST.get('refine') == "True":
-            image_id = int(request.POST.get('imagecrop')) # number of selected face
+            image_path = request.POST.get('imagecrop') # number selected face
+            full_path = os.path.join(MEDIA_PATH, image_path)
+            img = Image.open(full_path) # cropped aligned face, ready for search
 
 
 
