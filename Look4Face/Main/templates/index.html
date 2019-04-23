@@ -3,9 +3,11 @@
 {% load staticfiles %}
 
 <div class="container">
-    <h2 class="tm-block-title">Загрузите фотографию человека из LFW. На изображении может быть несколько лиц.</h2>
+    <h2 align="center" class="tm-block-title">Загрузите фотографию человека из LFW. На изображении может быть несколько лиц.</h2>
+    <br>
     <div class="tm-avatar-container">
-        <form enctype="multipart/form-data" name="new_face" method="POST" action="">{% csrf_token %}
+    <form enctype="multipart/form-data" name="new_face" method="POST" action="">{% csrf_token %}
+        <input type="hidden" name="refine" value="False">
         <div class="avatar-upload">
             <div class="avatar-edit">
                 <input type='file' id="imageUpload" name="photo" accept=".png, .jpg, .jpeg" />
@@ -16,9 +18,10 @@
                 </div>
             </div>
         </div>
-        <button class="btn btn-primary btn-block text-uppercase">Искать</button>
-        </form>
     </div>
+    <br>
+    <button id="searchbtn" class="btn btn-primary btn-block text-uppercase" disabled>Find similar</button>
+    </form>
 </div>
 
 {% endblock %}

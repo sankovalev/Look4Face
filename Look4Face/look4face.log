@@ -290,3 +290,445 @@ INFO:django.utils.autoreload:/home/velavok/ML/DEEPLOM/WEB/Look4Face/Main/views.p
 INFO:django.utils.autoreload:/home/velavok/ML/DEEPLOM/WEB/Look4Face/Main/views.py changed, reloading.
 INFO:django.utils.autoreload:/home/velavok/ML/DEEPLOM/WEB/Look4Face/Main/views.py changed, reloading.
 INFO:django.utils.autoreload:/home/velavok/ML/DEEPLOM/WEB/Look4Face/Main/views.py changed, reloading.
+ERROR:django.request:Internal Server Error: /
+Traceback (most recent call last):
+  File "/home/velavok/ML/DEEPLOM/WEB/lib/python3.6/site-packages/django/core/handlers/exception.py", line 34, in inner
+    response = get_response(request)
+  File "/home/velavok/ML/DEEPLOM/WEB/lib/python3.6/site-packages/django/core/handlers/base.py", line 115, in _get_response
+    response = self.process_exception_by_middleware(e, request)
+  File "/home/velavok/ML/DEEPLOM/WEB/lib/python3.6/site-packages/django/core/handlers/base.py", line 113, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "/home/velavok/ML/DEEPLOM/WEB/Look4Face/Main/views.py", line 42, in main
+    bounding_boxes, landmarks = detect_faces(img)
+  File "/home/velavok/ML/DEEPLOM/WEB/Look4Face/align/detector.py", line 25, in detect_faces
+    pnet = PNet()
+  File "/home/velavok/ML/DEEPLOM/WEB/Look4Face/align/get_nets.py", line 57, in __init__
+    weights = np.load(os.path.join(WEIGHTS_PATH, "pnet.npy"))[()]
+  File "/home/velavok/ML/DEEPLOM/WEB/lib/python3.6/site-packages/numpy/lib/npyio.py", line 447, in load
+    pickle_kwargs=pickle_kwargs)
+  File "/home/velavok/ML/DEEPLOM/WEB/lib/python3.6/site-packages/numpy/lib/format.py", line 692, in read_array
+    raise ValueError("Object arrays cannot be loaded when "
+ValueError: Object arrays cannot be loaded when allow_pickle=False
+INFO:django.utils.autoreload:/home/velavok/ML/DEEPLOM/WEB/Look4Face/align/get_nets.py changed, reloading.
+ERROR:django.request:Internal Server Error: /
+Traceback (most recent call last):
+  File "/home/velavok/ML/DEEPLOM/WEB/lib/python3.6/site-packages/django/core/handlers/exception.py", line 34, in inner
+    response = get_response(request)
+  File "/home/velavok/ML/DEEPLOM/WEB/lib/python3.6/site-packages/django/core/handlers/base.py", line 115, in _get_response
+    response = self.process_exception_by_middleware(e, request)
+  File "/home/velavok/ML/DEEPLOM/WEB/lib/python3.6/site-packages/django/core/handlers/base.py", line 113, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "/home/velavok/ML/DEEPLOM/WEB/Look4Face/Main/views.py", line 42, in main
+    bounding_boxes, landmarks = detect_faces(img)
+  File "/home/velavok/ML/DEEPLOM/WEB/Look4Face/align/detector.py", line 25, in detect_faces
+    pnet = PNet()
+  File "/home/velavok/ML/DEEPLOM/WEB/Look4Face/align/get_nets.py", line 57, in __init__
+    weights = np.load(os.path.join(WEIGHTS_PATH, "pnet.npy"))[()]
+  File "/home/velavok/ML/DEEPLOM/WEB/lib/python3.6/site-packages/numpy/lib/npyio.py", line 422, in load
+    fid = open(os_fspath(file), "rb")
+FileNotFoundError: [Errno 2] No such file or directory: './pnet.npy'
+INFO:django.utils.autoreload:/home/velavok/ML/DEEPLOM/WEB/Look4Face/align/get_nets.py changed, reloading.
+ERROR:django.request:Internal Server Error: /
+Traceback (most recent call last):
+  File "/home/velavok/ML/DEEPLOM/WEB/lib/python3.6/site-packages/django/core/handlers/exception.py", line 34, in inner
+    response = get_response(request)
+  File "/home/velavok/ML/DEEPLOM/WEB/lib/python3.6/site-packages/django/core/handlers/base.py", line 115, in _get_response
+    response = self.process_exception_by_middleware(e, request)
+  File "/home/velavok/ML/DEEPLOM/WEB/lib/python3.6/site-packages/django/core/handlers/base.py", line 113, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "/home/velavok/ML/DEEPLOM/WEB/Look4Face/Main/views.py", line 42, in main
+    bounding_boxes, landmarks = detect_faces(img)
+  File "/home/velavok/ML/DEEPLOM/WEB/Look4Face/align/detector.py", line 25, in detect_faces
+    pnet = PNet()
+  File "/home/velavok/ML/DEEPLOM/WEB/Look4Face/align/get_nets.py", line 57, in __init__
+    weights = np.load(os.path.join(WEIGHTS_PATH, "pnet.npy"))[()]
+  File "/home/velavok/ML/DEEPLOM/WEB/lib/python3.6/site-packages/numpy/lib/npyio.py", line 422, in load
+    fid = open(os_fspath(file), "rb")
+FileNotFoundError: [Errno 2] No such file or directory: 'pnet.npy'
+ERROR:django.request:Internal Server Error: /
+Traceback (most recent call last):
+  File "/home/velavok/ML/DEEPLOM/WEB/lib/python3.6/site-packages/django/core/handlers/exception.py", line 34, in inner
+    response = get_response(request)
+  File "/home/velavok/ML/DEEPLOM/WEB/lib/python3.6/site-packages/django/core/handlers/base.py", line 115, in _get_response
+    response = self.process_exception_by_middleware(e, request)
+  File "/home/velavok/ML/DEEPLOM/WEB/lib/python3.6/site-packages/django/core/handlers/base.py", line 113, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "/home/velavok/ML/DEEPLOM/WEB/Look4Face/Main/views.py", line 42, in main
+    bounding_boxes, landmarks = detect_faces(img)
+  File "/home/velavok/ML/DEEPLOM/WEB/Look4Face/align/detector.py", line 25, in detect_faces
+    pnet = PNet()
+  File "/home/velavok/ML/DEEPLOM/WEB/Look4Face/align/get_nets.py", line 57, in __init__
+    weights = np.load(os.path.join(WEIGHTS_PATH, "pnet.npy"))[()]
+  File "/home/velavok/ML/DEEPLOM/WEB/lib/python3.6/site-packages/numpy/lib/npyio.py", line 422, in load
+    fid = open(os_fspath(file), "rb")
+FileNotFoundError: [Errno 2] No such file or directory: 'pnet.npy'
+ERROR:django.request:Internal Server Error: /
+Traceback (most recent call last):
+  File "/home/velavok/ML/DEEPLOM/WEB/lib/python3.6/site-packages/django/core/handlers/exception.py", line 34, in inner
+    response = get_response(request)
+  File "/home/velavok/ML/DEEPLOM/WEB/lib/python3.6/site-packages/django/core/handlers/base.py", line 115, in _get_response
+    response = self.process_exception_by_middleware(e, request)
+  File "/home/velavok/ML/DEEPLOM/WEB/lib/python3.6/site-packages/django/core/handlers/base.py", line 113, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "/home/velavok/ML/DEEPLOM/WEB/Look4Face/Main/views.py", line 42, in main
+    bounding_boxes, landmarks = detect_faces(img)
+  File "/home/velavok/ML/DEEPLOM/WEB/Look4Face/align/detector.py", line 25, in detect_faces
+    pnet = PNet()
+  File "/home/velavok/ML/DEEPLOM/WEB/Look4Face/align/get_nets.py", line 57, in __init__
+    weights = np.load(os.path.join(WEIGHTS_PATH, "pnet.npy"))[()]
+  File "/home/velavok/ML/DEEPLOM/WEB/lib/python3.6/site-packages/numpy/lib/npyio.py", line 447, in load
+    pickle_kwargs=pickle_kwargs)
+  File "/home/velavok/ML/DEEPLOM/WEB/lib/python3.6/site-packages/numpy/lib/format.py", line 692, in read_array
+    raise ValueError("Object arrays cannot be loaded when "
+ValueError: Object arrays cannot be loaded when allow_pickle=False
+ERROR:django.request:Internal Server Error: /
+Traceback (most recent call last):
+  File "/home/velavok/ML/DEEPLOM/WEB/lib/python3.6/site-packages/django/core/handlers/exception.py", line 34, in inner
+    response = get_response(request)
+  File "/home/velavok/ML/DEEPLOM/WEB/lib/python3.6/site-packages/django/core/handlers/base.py", line 115, in _get_response
+    response = self.process_exception_by_middleware(e, request)
+  File "/home/velavok/ML/DEEPLOM/WEB/lib/python3.6/site-packages/django/core/handlers/base.py", line 113, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "/home/velavok/ML/DEEPLOM/WEB/Look4Face/Main/views.py", line 42, in main
+    bounding_boxes, landmarks = detect_faces(img)
+  File "/home/velavok/ML/DEEPLOM/WEB/Look4Face/align/detector.py", line 26, in detect_faces
+    rnet = RNet()
+  File "/home/velavok/ML/DEEPLOM/WEB/Look4Face/align/get_nets.py", line 102, in __init__
+    weights = np.load(os.path.join(WEIGHTS_PATH, "rnet.npy"))[()]
+  File "/home/velavok/ML/DEEPLOM/WEB/lib/python3.6/site-packages/numpy/lib/npyio.py", line 447, in load
+    pickle_kwargs=pickle_kwargs)
+  File "/home/velavok/ML/DEEPLOM/WEB/lib/python3.6/site-packages/numpy/lib/format.py", line 692, in read_array
+    raise ValueError("Object arrays cannot be loaded when "
+ValueError: Object arrays cannot be loaded when allow_pickle=False
+INFO:django.utils.autoreload:/home/velavok/ML/DEEPLOM/WEB/Look4Face/align/get_nets.py changed, reloading.
+ERROR:django.request:Internal Server Error: /
+Traceback (most recent call last):
+  File "/home/velavok/ML/DEEPLOM/WEB/lib/python3.6/site-packages/django/core/handlers/exception.py", line 34, in inner
+    response = get_response(request)
+  File "/home/velavok/ML/DEEPLOM/WEB/lib/python3.6/site-packages/django/core/handlers/base.py", line 115, in _get_response
+    response = self.process_exception_by_middleware(e, request)
+  File "/home/velavok/ML/DEEPLOM/WEB/lib/python3.6/site-packages/django/core/handlers/base.py", line 113, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "/home/velavok/ML/DEEPLOM/WEB/Look4Face/Main/views.py", line 42, in main
+    bounding_boxes, landmarks = detect_faces(img)
+  File "/home/velavok/ML/DEEPLOM/WEB/Look4Face/align/detector.py", line 25, in detect_faces
+    pnet = PNet()
+  File "/home/velavok/ML/DEEPLOM/WEB/Look4Face/align/get_nets.py", line 57, in __init__
+    weights = np.load(os.path.join(WEIGHTS_PATH, "pnet.npy"))[()]
+  File "/home/velavok/ML/DEEPLOM/WEB/lib/python3.6/site-packages/numpy/lib/npyio.py", line 447, in load
+    pickle_kwargs=pickle_kwargs)
+  File "/home/velavok/ML/DEEPLOM/WEB/lib/python3.6/site-packages/numpy/lib/format.py", line 692, in read_array
+    raise ValueError("Object arrays cannot be loaded when "
+ValueError: Object arrays cannot be loaded when allow_pickle=False
+ERROR:django.request:Internal Server Error: /
+Traceback (most recent call last):
+  File "/home/velavok/ML/DEEPLOM/WEB/lib/python3.6/site-packages/django/core/handlers/exception.py", line 34, in inner
+    response = get_response(request)
+  File "/home/velavok/ML/DEEPLOM/WEB/lib/python3.6/site-packages/django/core/handlers/base.py", line 115, in _get_response
+    response = self.process_exception_by_middleware(e, request)
+  File "/home/velavok/ML/DEEPLOM/WEB/lib/python3.6/site-packages/django/core/handlers/base.py", line 113, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "/home/velavok/ML/DEEPLOM/WEB/Look4Face/Main/views.py", line 42, in main
+    bounding_boxes, landmarks = detect_faces(img)
+  File "/home/velavok/ML/DEEPLOM/WEB/Look4Face/align/detector.py", line 25, in detect_faces
+    pnet = PNet()
+  File "/home/velavok/ML/DEEPLOM/WEB/Look4Face/align/get_nets.py", line 57, in __init__
+    weights = np.load(os.path.join(WEIGHTS_PATH, "pnet.npy"))[()]
+  File "/home/velavok/ML/DEEPLOM/WEB/lib/python3.6/site-packages/numpy/lib/npyio.py", line 447, in load
+    pickle_kwargs=pickle_kwargs)
+  File "/home/velavok/ML/DEEPLOM/WEB/lib/python3.6/site-packages/numpy/lib/format.py", line 692, in read_array
+    raise ValueError("Object arrays cannot be loaded when "
+ValueError: Object arrays cannot be loaded when allow_pickle=False
+INFO:django.utils.autoreload:/home/velavok/ML/DEEPLOM/WEB/Look4Face/align/get_nets.py changed, reloading.
+INFO:django.utils.autoreload:/home/velavok/ML/DEEPLOM/WEB/Look4Face/align/get_nets.py changed, reloading.
+INFO:django.utils.autoreload:/home/velavok/ML/DEEPLOM/WEB/Look4Face/align/get_nets.py changed, reloading.
+INFO:django.utils.autoreload:/home/velavok/ML/DEEPLOM/WEB/Look4Face/Main/views.py changed, reloading.
+INFO:django.utils.autoreload:/home/velavok/ML/DEEPLOM/WEB/Look4Face/Main/views.py changed, reloading.
+INFO:django.utils.autoreload:/home/velavok/ML/DEEPLOM/WEB/Look4Face/Main/views.py changed, reloading.
+INFO:django.utils.autoreload:/home/velavok/ML/DEEPLOM/WEB/Look4Face/Main/views.py changed, reloading.
+ERROR:django.request:Internal Server Error: /
+Traceback (most recent call last):
+  File "/home/velavok/ML/DEEPLOM/WEB/lib/python3.6/site-packages/django/core/handlers/exception.py", line 34, in inner
+    response = get_response(request)
+  File "/home/velavok/ML/DEEPLOM/WEB/lib/python3.6/site-packages/django/core/handlers/base.py", line 126, in _get_response
+    "returned None instead." % (callback.__module__, view_name)
+ValueError: The view Main.views.main didn't return an HttpResponse object. It returned None instead.
+INFO:django.utils.autoreload:/home/velavok/ML/DEEPLOM/WEB/Look4Face/Main/views.py changed, reloading.
+INFO:django.utils.autoreload:/home/velavok/ML/DEEPLOM/WEB/Look4Face/Main/views.py changed, reloading.
+INFO:django.utils.autoreload:/home/velavok/ML/DEEPLOM/WEB/Look4Face/Main/views.py changed, reloading.
+INFO:django.utils.autoreload:/home/velavok/ML/DEEPLOM/WEB/Look4Face/Main/views.py changed, reloading.
+INFO:django.utils.autoreload:/home/velavok/ML/DEEPLOM/WEB/Look4Face/Main/views.py changed, reloading.
+INFO:django.utils.autoreload:/home/velavok/ML/DEEPLOM/WEB/Look4Face/Main/views.py changed, reloading.
+INFO:django.utils.autoreload:/home/velavok/ML/DEEPLOM/WEB/Look4Face/Main/views.py changed, reloading.
+INFO:django.utils.autoreload:/home/velavok/ML/DEEPLOM/WEB/Look4Face/Main/views.py changed, reloading.
+INFO:django.utils.autoreload:/home/velavok/ML/DEEPLOM/WEB/Look4Face/Main/views.py changed, reloading.
+INFO:django.utils.autoreload:/home/velavok/ML/DEEPLOM/WEB/Look4Face/Main/views.py changed, reloading.
+INFO:django.utils.autoreload:/home/velavok/ML/DEEPLOM/WEB/Look4Face/Main/views.py changed, reloading.
+WARNING:django.request:Not Found: /crops/0_2342019_20:18:13.jpg
+WARNING:django.request:Not Found: /crops/1_2342019_20:18:13.jpg
+WARNING:django.request:Not Found: /crops/4_2342019_20:18:13.jpg
+WARNING:django.request:Not Found: /crops/3_2342019_20:18:13.jpg
+WARNING:django.request:Not Found: /crops/2_2342019_20:18:13.jpg
+WARNING:django.request:Not Found: /crops/5_2342019_20:18:13.jpg
+WARNING:django.request:Not Found: /crops/6_2342019_20:18:13.jpg
+INFO:django.utils.autoreload:/home/velavok/ML/DEEPLOM/WEB/Look4Face/Main/views.py changed, reloading.
+WARNING:django.request:Not Found: /home/velavok/ML/DEEPLOM/WEB/Look4Face/media/media_root/crops/0_2342019_20:19:6.jpg
+WARNING:django.request:Not Found: /home/velavok/ML/DEEPLOM/WEB/Look4Face/media/media_root/crops/1_2342019_20:19:6.jpg
+WARNING:django.request:Not Found: /home/velavok/ML/DEEPLOM/WEB/Look4Face/media/media_root/crops/4_2342019_20:19:6.jpg
+WARNING:django.request:Not Found: /home/velavok/ML/DEEPLOM/WEB/Look4Face/media/media_root/crops/3_2342019_20:19:6.jpg
+WARNING:django.request:Not Found: /home/velavok/ML/DEEPLOM/WEB/Look4Face/media/media_root/crops/2_2342019_20:19:6.jpg
+WARNING:django.request:Not Found: /home/velavok/ML/DEEPLOM/WEB/Look4Face/media/media_root/crops/5_2342019_20:19:6.jpg
+WARNING:django.request:Not Found: /home/velavok/ML/DEEPLOM/WEB/Look4Face/media/media_root/crops/6_2342019_20:19:6.jpg
+WARNING:django.request:Not Found: /home/velavok/ML/DEEPLOM/WEB/Look4Face/media/media_root/crops/1_2342019_20:19:23.jpg
+WARNING:django.request:Not Found: /home/velavok/ML/DEEPLOM/WEB/Look4Face/media/media_root/crops/0_2342019_20:19:23.jpg
+WARNING:django.request:Not Found: /home/velavok/ML/DEEPLOM/WEB/Look4Face/media/media_root/crops/5_2342019_20:19:23.jpg
+WARNING:django.request:Not Found: /home/velavok/ML/DEEPLOM/WEB/Look4Face/media/media_root/crops/3_2342019_20:19:23.jpg
+WARNING:django.request:Not Found: /home/velavok/ML/DEEPLOM/WEB/Look4Face/media/media_root/crops/2_2342019_20:19:23.jpg
+WARNING:django.request:Not Found: /home/velavok/ML/DEEPLOM/WEB/Look4Face/media/media_root/crops/6_2342019_20:19:23.jpg
+WARNING:django.request:Not Found: /home/velavok/ML/DEEPLOM/WEB/Look4Face/media/media_root/crops/4_2342019_20:19:23.jpg
+INFO:django.utils.autoreload:/home/velavok/ML/DEEPLOM/WEB/Look4Face/Main/views.py changed, reloading.
+ERROR:django.request:Internal Server Error: /
+Traceback (most recent call last):
+  File "/home/velavok/ML/DEEPLOM/WEB/lib/python3.6/site-packages/django/template/base.py", line 470, in parse
+    compile_func = self.tags[command]
+KeyError: 'media'
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/home/velavok/ML/DEEPLOM/WEB/lib/python3.6/site-packages/django/core/handlers/exception.py", line 34, in inner
+    response = get_response(request)
+  File "/home/velavok/ML/DEEPLOM/WEB/lib/python3.6/site-packages/django/core/handlers/base.py", line 115, in _get_response
+    response = self.process_exception_by_middleware(e, request)
+  File "/home/velavok/ML/DEEPLOM/WEB/lib/python3.6/site-packages/django/core/handlers/base.py", line 113, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "/home/velavok/ML/DEEPLOM/WEB/Look4Face/Main/views.py", line 58, in main
+    return render(request, 'refine.html', context)
+  File "/home/velavok/ML/DEEPLOM/WEB/lib/python3.6/site-packages/django/shortcuts.py", line 36, in render
+    content = loader.render_to_string(template_name, context, request, using=using)
+  File "/home/velavok/ML/DEEPLOM/WEB/lib/python3.6/site-packages/django/template/loader.py", line 61, in render_to_string
+    template = get_template(template_name, using=using)
+  File "/home/velavok/ML/DEEPLOM/WEB/lib/python3.6/site-packages/django/template/loader.py", line 15, in get_template
+    return engine.get_template(template_name)
+  File "/home/velavok/ML/DEEPLOM/WEB/lib/python3.6/site-packages/django/template/backends/django.py", line 34, in get_template
+    return Template(self.engine.get_template(template_name), self)
+  File "/home/velavok/ML/DEEPLOM/WEB/lib/python3.6/site-packages/django/template/engine.py", line 143, in get_template
+    template, origin = self.find_template(template_name)
+  File "/home/velavok/ML/DEEPLOM/WEB/lib/python3.6/site-packages/django/template/engine.py", line 125, in find_template
+    template = loader.get_template(name, skip=skip)
+  File "/home/velavok/ML/DEEPLOM/WEB/lib/python3.6/site-packages/django/template/loaders/base.py", line 30, in get_template
+    contents, origin, origin.template_name, self.engine,
+  File "/home/velavok/ML/DEEPLOM/WEB/lib/python3.6/site-packages/django/template/base.py", line 156, in __init__
+    self.nodelist = self.compile_nodelist()
+  File "/home/velavok/ML/DEEPLOM/WEB/lib/python3.6/site-packages/django/template/base.py", line 194, in compile_nodelist
+    return parser.parse()
+  File "/home/velavok/ML/DEEPLOM/WEB/lib/python3.6/site-packages/django/template/base.py", line 478, in parse
+    raise self.error(token, e)
+  File "/home/velavok/ML/DEEPLOM/WEB/lib/python3.6/site-packages/django/template/base.py", line 476, in parse
+    compiled_result = compile_func(self, token)
+  File "/home/velavok/ML/DEEPLOM/WEB/lib/python3.6/site-packages/django/template/loader_tags.py", line 266, in do_extends
+    nodelist = parser.parse()
+  File "/home/velavok/ML/DEEPLOM/WEB/lib/python3.6/site-packages/django/template/base.py", line 478, in parse
+    raise self.error(token, e)
+  File "/home/velavok/ML/DEEPLOM/WEB/lib/python3.6/site-packages/django/template/base.py", line 476, in parse
+    compiled_result = compile_func(self, token)
+  File "/home/velavok/ML/DEEPLOM/WEB/lib/python3.6/site-packages/django/template/loader_tags.py", line 209, in do_block
+    nodelist = parser.parse(('endblock',))
+  File "/home/velavok/ML/DEEPLOM/WEB/lib/python3.6/site-packages/django/template/base.py", line 478, in parse
+    raise self.error(token, e)
+  File "/home/velavok/ML/DEEPLOM/WEB/lib/python3.6/site-packages/django/template/base.py", line 476, in parse
+    compiled_result = compile_func(self, token)
+  File "/home/velavok/ML/DEEPLOM/WEB/lib/python3.6/site-packages/django/template/defaulttags.py", line 811, in do_for
+    nodelist_loop = parser.parse(('empty', 'endfor',))
+  File "/home/velavok/ML/DEEPLOM/WEB/lib/python3.6/site-packages/django/template/base.py", line 472, in parse
+    self.invalid_block_tag(token, command, parse_until)
+  File "/home/velavok/ML/DEEPLOM/WEB/lib/python3.6/site-packages/django/template/base.py", line 528, in invalid_block_tag
+    get_text_list(["'%s'" % p for p in parse_until], 'or'),
+django.template.exceptions.TemplateSyntaxError: Invalid block tag on line 16: 'media', expected 'empty' or 'endfor'. Did you forget to register or load this tag?
+ERROR:django.request:Internal Server Error: /
+Traceback (most recent call last):
+  File "/home/velavok/ML/DEEPLOM/WEB/lib/python3.6/site-packages/django/core/handlers/exception.py", line 34, in inner
+    response = get_response(request)
+  File "/home/velavok/ML/DEEPLOM/WEB/lib/python3.6/site-packages/django/core/handlers/base.py", line 115, in _get_response
+    response = self.process_exception_by_middleware(e, request)
+  File "/home/velavok/ML/DEEPLOM/WEB/lib/python3.6/site-packages/django/core/handlers/base.py", line 113, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "/home/velavok/ML/DEEPLOM/WEB/Look4Face/Main/views.py", line 58, in main
+    return render(request, 'refine.html', context)
+  File "/home/velavok/ML/DEEPLOM/WEB/lib/python3.6/site-packages/django/shortcuts.py", line 36, in render
+    content = loader.render_to_string(template_name, context, request, using=using)
+  File "/home/velavok/ML/DEEPLOM/WEB/lib/python3.6/site-packages/django/template/loader.py", line 61, in render_to_string
+    template = get_template(template_name, using=using)
+  File "/home/velavok/ML/DEEPLOM/WEB/lib/python3.6/site-packages/django/template/loader.py", line 15, in get_template
+    return engine.get_template(template_name)
+  File "/home/velavok/ML/DEEPLOM/WEB/lib/python3.6/site-packages/django/template/backends/django.py", line 34, in get_template
+    return Template(self.engine.get_template(template_name), self)
+  File "/home/velavok/ML/DEEPLOM/WEB/lib/python3.6/site-packages/django/template/engine.py", line 143, in get_template
+    template, origin = self.find_template(template_name)
+  File "/home/velavok/ML/DEEPLOM/WEB/lib/python3.6/site-packages/django/template/engine.py", line 125, in find_template
+    template = loader.get_template(name, skip=skip)
+  File "/home/velavok/ML/DEEPLOM/WEB/lib/python3.6/site-packages/django/template/loaders/base.py", line 30, in get_template
+    contents, origin, origin.template_name, self.engine,
+  File "/home/velavok/ML/DEEPLOM/WEB/lib/python3.6/site-packages/django/template/base.py", line 156, in __init__
+    self.nodelist = self.compile_nodelist()
+  File "/home/velavok/ML/DEEPLOM/WEB/lib/python3.6/site-packages/django/template/base.py", line 194, in compile_nodelist
+    return parser.parse()
+  File "/home/velavok/ML/DEEPLOM/WEB/lib/python3.6/site-packages/django/template/base.py", line 478, in parse
+    raise self.error(token, e)
+  File "/home/velavok/ML/DEEPLOM/WEB/lib/python3.6/site-packages/django/template/base.py", line 476, in parse
+    compiled_result = compile_func(self, token)
+  File "/home/velavok/ML/DEEPLOM/WEB/lib/python3.6/site-packages/django/template/loader_tags.py", line 266, in do_extends
+    nodelist = parser.parse()
+  File "/home/velavok/ML/DEEPLOM/WEB/lib/python3.6/site-packages/django/template/base.py", line 478, in parse
+    raise self.error(token, e)
+  File "/home/velavok/ML/DEEPLOM/WEB/lib/python3.6/site-packages/django/template/base.py", line 476, in parse
+    compiled_result = compile_func(self, token)
+  File "/home/velavok/ML/DEEPLOM/WEB/lib/python3.6/site-packages/django/template/loader_tags.py", line 209, in do_block
+    nodelist = parser.parse(('endblock',))
+  File "/home/velavok/ML/DEEPLOM/WEB/lib/python3.6/site-packages/django/template/base.py", line 478, in parse
+    raise self.error(token, e)
+  File "/home/velavok/ML/DEEPLOM/WEB/lib/python3.6/site-packages/django/template/base.py", line 476, in parse
+    compiled_result = compile_func(self, token)
+  File "/home/velavok/ML/DEEPLOM/WEB/lib/python3.6/site-packages/django/template/defaulttags.py", line 811, in do_for
+    nodelist_loop = parser.parse(('empty', 'endfor',))
+  File "/home/velavok/ML/DEEPLOM/WEB/lib/python3.6/site-packages/django/template/base.py", line 478, in parse
+    raise self.error(token, e)
+  File "/home/velavok/ML/DEEPLOM/WEB/lib/python3.6/site-packages/django/template/base.py", line 476, in parse
+    compiled_result = compile_func(self, token)
+  File "/home/velavok/ML/DEEPLOM/WEB/lib/python3.6/site-packages/django/contrib/staticfiles/templatetags/staticfiles.py", line 28, in do_static
+    return _do_static(parser, token)
+  File "/home/velavok/ML/DEEPLOM/WEB/lib/python3.6/site-packages/django/templatetags/static.py", line 159, in do_static
+    return StaticNode.handle_token(parser, token)
+  File "/home/velavok/ML/DEEPLOM/WEB/lib/python3.6/site-packages/django/templatetags/static.py", line 133, in handle_token
+    path = parser.compile_filter(bits[1])
+  File "/home/velavok/ML/DEEPLOM/WEB/lib/python3.6/site-packages/django/template/base.py", line 563, in compile_filter
+    return FilterExpression(token, self)
+  File "/home/velavok/ML/DEEPLOM/WEB/lib/python3.6/site-packages/django/template/base.py", line 663, in __init__
+    "from '%s'" % (token[upto:], token))
+django.template.exceptions.TemplateSyntaxError: Could not parse the remainder: '{{face}}' from '{{face}}'
+WARNING:django.request:Not Found: /media/media_root/crops/0_2342019_20:28:54.jpg
+WARNING:django.request:Not Found: /media/media_root/crops/1_2342019_20:28:54.jpg
+WARNING:django.request:Not Found: /media/media_root/crops/2_2342019_20:28:54.jpg
+WARNING:django.request:Not Found: /media/media_root/crops/3_2342019_20:28:54.jpg
+WARNING:django.request:Not Found: /media/media_root/crops/4_2342019_20:28:54.jpg
+WARNING:django.request:Not Found: /media/media_root/crops/5_2342019_20:28:54.jpg
+WARNING:django.request:Not Found: /media/media_root/crops/6_2342019_20:28:54.jpg
+WARNING:django.request:Not Found: /media/media_root/crops/1_2342019_20:29:24.jpg
+WARNING:django.request:Not Found: /media/media_root/crops/0_2342019_20:29:24.jpg
+WARNING:django.request:Not Found: /media/media_root/crops/3_2342019_20:29:24.jpg
+WARNING:django.request:Not Found: /media/media_root/crops/5_2342019_20:29:24.jpg
+WARNING:django.request:Not Found: /media/media_root/crops/4_2342019_20:29:24.jpg
+WARNING:django.request:Not Found: /media/media_root/crops/2_2342019_20:29:24.jpg
+WARNING:django.request:Not Found: /media/media_root/crops/6_2342019_20:29:24.jpg
+WARNING:django.request:Not Found: /media_root/crops/1_2342019_20:29:34.jpg
+WARNING:django.request:Not Found: /media_root/crops/0_2342019_20:29:34.jpg
+WARNING:django.request:Not Found: /media_root/crops/4_2342019_20:29:34.jpg
+WARNING:django.request:Not Found: /media_root/crops/6_2342019_20:29:34.jpg
+WARNING:django.request:Not Found: /media_root/crops/3_2342019_20:29:34.jpg
+WARNING:django.request:Not Found: /media_root/crops/5_2342019_20:29:34.jpg
+WARNING:django.request:Not Found: /media_root/crops/2_2342019_20:29:34.jpg
+WARNING:django.request:Not Found: /media/media_root/crops/0_2342019_20:34:19.jpg
+WARNING:django.request:Not Found: /media/media_root/crops/1_2342019_20:34:19.jpg
+WARNING:django.request:Not Found: /media/media_root/crops/5_2342019_20:34:19.jpg
+WARNING:django.request:Not Found: /media/media_root/crops/3_2342019_20:34:19.jpg
+WARNING:django.request:Not Found: /media/media_root/crops/4_2342019_20:34:19.jpg
+WARNING:django.request:Not Found: /media/media_root/crops/6_2342019_20:34:19.jpg
+WARNING:django.request:Not Found: /media/media_root/crops/2_2342019_20:34:19.jpg
+WARNING:django.request:Not Found: /Look4Face/media/media_root/crops/0_2342019_20:34:56.jpg
+WARNING:django.request:Not Found: /Look4Face/media/media_root/crops/1_2342019_20:34:56.jpg
+WARNING:django.request:Not Found: /Look4Face/media/media_root/crops/6_2342019_20:34:56.jpg
+WARNING:django.request:Not Found: /Look4Face/media/media_root/crops/4_2342019_20:34:56.jpg
+WARNING:django.request:Not Found: /Look4Face/media/media_root/crops/3_2342019_20:34:56.jpg
+WARNING:django.request:Not Found: /Look4Face/media/media_root/crops/2_2342019_20:34:56.jpg
+WARNING:django.request:Not Found: /Look4Face/media/media_root/crops/5_2342019_20:34:56.jpg
+WARNING:django.request:Not Found: /crops/1_2342019_20:35:16.jpg
+WARNING:django.request:Not Found: /crops/0_2342019_20:35:16.jpg
+WARNING:django.request:Not Found: /crops/3_2342019_20:35:16.jpg
+WARNING:django.request:Not Found: /crops/5_2342019_20:35:16.jpg
+WARNING:django.request:Not Found: /crops/4_2342019_20:35:16.jpg
+WARNING:django.request:Not Found: /crops/2_2342019_20:35:16.jpg
+WARNING:django.request:Not Found: /crops/6_2342019_20:35:16.jpg
+WARNING:django.request:Not Found: /Look4Face/media/media_root/crops/0_2342019_20:36:15.jpg
+WARNING:django.request:Not Found: /Look4Face/media/media_root/crops/1_2342019_20:36:15.jpg
+WARNING:django.request:Not Found: /Look4Face/media/media_root/crops/3_2342019_20:36:15.jpg
+WARNING:django.request:Not Found: /Look4Face/media/media_root/crops/5_2342019_20:36:15.jpg
+WARNING:django.request:Not Found: /Look4Face/media/media_root/crops/4_2342019_20:36:15.jpg
+WARNING:django.request:Not Found: /Look4Face/media/media_root/crops/2_2342019_20:36:15.jpg
+WARNING:django.request:Not Found: /Look4Face/media/media_root/crops/6_2342019_20:36:15.jpg
+WARNING:django.request:Not Found: /media/media_root/crops/1_2342019_20:36:26.jpg
+WARNING:django.request:Not Found: /media/media_root/crops/0_2342019_20:36:26.jpg
+WARNING:django.request:Not Found: /media/media_root/crops/2_2342019_20:36:26.jpg
+WARNING:django.request:Not Found: /media/media_root/crops/5_2342019_20:36:26.jpg
+WARNING:django.request:Not Found: /media/media_root/crops/6_2342019_20:36:26.jpg
+WARNING:django.request:Not Found: /media/media_root/crops/3_2342019_20:36:26.jpg
+WARNING:django.request:Not Found: /media/media_root/crops/4_2342019_20:36:26.jpg
+WARNING:django.request:Not Found: /media_root/crops/1_2342019_20:36:35.jpg
+WARNING:django.request:Not Found: /media_root/crops/0_2342019_20:36:35.jpg
+WARNING:django.request:Not Found: /media_root/crops/2_2342019_20:36:35.jpg
+WARNING:django.request:Not Found: /media_root/crops/3_2342019_20:36:35.jpg
+WARNING:django.request:Not Found: /media_root/crops/6_2342019_20:36:35.jpg
+WARNING:django.request:Not Found: /media_root/crops/5_2342019_20:36:35.jpg
+WARNING:django.request:Not Found: /media_root/crops/4_2342019_20:36:35.jpg
+WARNING:django.request:Not Found: /media_root/crops/0_2342019_20:36:35.jpg
+INFO:django.utils.autoreload:/home/velavok/ML/DEEPLOM/WEB/Look4Face/Main/views.py changed, reloading.
+ERROR:django.request:Internal Server Error: /
+Traceback (most recent call last):
+  File "/home/velavok/ML/DEEPLOM/WEB/lib/python3.6/site-packages/django/core/handlers/exception.py", line 34, in inner
+    response = get_response(request)
+  File "/home/velavok/ML/DEEPLOM/WEB/lib/python3.6/site-packages/django/core/handlers/base.py", line 115, in _get_response
+    response = self.process_exception_by_middleware(e, request)
+  File "/home/velavok/ML/DEEPLOM/WEB/lib/python3.6/site-packages/django/core/handlers/base.py", line 113, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "/home/velavok/ML/DEEPLOM/WEB/Look4Face/Main/views.py", line 53, in main
+    face_urls = refine_face(img, bounding_boxes, image_path)
+  File "/home/velavok/ML/DEEPLOM/WEB/Look4Face/Main/views.py", line 89, in refine_face
+    face = img.resize((224, 224), box=bounding_boxes[i][:4])
+  File "/home/velavok/ML/DEEPLOM/WEB/lib/python3.6/site-packages/PIL/Image.py", line 1819, in resize
+    return self._new(self.im.resize(size, resample, box))
+ValueError: box offset can't be negative
+INFO:django.utils.autoreload:/home/velavok/ML/DEEPLOM/WEB/Look4Face/Main/views.py changed, reloading.
+INFO:django.utils.autoreload:/home/velavok/ML/DEEPLOM/WEB/Look4Face/Main/views.py changed, reloading.
+INFO:django.utils.autoreload:/home/velavok/ML/DEEPLOM/WEB/Look4Face/Main/views.py changed, reloading.
+ERROR:django.request:Internal Server Error: /
+Traceback (most recent call last):
+  File "/home/velavok/ML/DEEPLOM/WEB/lib/python3.6/site-packages/django/core/handlers/exception.py", line 34, in inner
+    response = get_response(request)
+  File "/home/velavok/ML/DEEPLOM/WEB/lib/python3.6/site-packages/django/core/handlers/base.py", line 115, in _get_response
+    response = self.process_exception_by_middleware(e, request)
+  File "/home/velavok/ML/DEEPLOM/WEB/lib/python3.6/site-packages/django/core/handlers/base.py", line 113, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "/home/velavok/ML/DEEPLOM/WEB/Look4Face/Main/views.py", line 35, in main
+    image_type = image.name.split('.')[-1] #png/jpg/jpeg
+AttributeError: 'NoneType' object has no attribute 'name'
+INFO:django.utils.autoreload:/home/velavok/ML/DEEPLOM/WEB/Look4Face/Main/views.py changed, reloading.
+INFO:django.utils.autoreload:/home/velavok/ML/DEEPLOM/WEB/Look4Face/Main/views.py changed, reloading.
+ERROR:django.request:Internal Server Error: /
+Traceback (most recent call last):
+  File "/home/velavok/ML/DEEPLOM/WEB/lib/python3.6/site-packages/django/core/handlers/exception.py", line 34, in inner
+    response = get_response(request)
+  File "/home/velavok/ML/DEEPLOM/WEB/lib/python3.6/site-packages/django/core/handlers/base.py", line 126, in _get_response
+    "returned None instead." % (callback.__module__, view_name)
+ValueError: The view Main.views.main didn't return an HttpResponse object. It returned None instead.
+ERROR:django.request:Internal Server Error: /
+Traceback (most recent call last):
+  File "/home/velavok/ML/DEEPLOM/WEB/lib/python3.6/site-packages/django/core/handlers/exception.py", line 34, in inner
+    response = get_response(request)
+  File "/home/velavok/ML/DEEPLOM/WEB/lib/python3.6/site-packages/django/core/handlers/base.py", line 126, in _get_response
+    "returned None instead." % (callback.__module__, view_name)
+ValueError: The view Main.views.main didn't return an HttpResponse object. It returned None instead.
+ERROR:django.request:Internal Server Error: /
+Traceback (most recent call last):
+  File "/home/velavok/ML/DEEPLOM/WEB/lib/python3.6/site-packages/django/core/handlers/exception.py", line 34, in inner
+    response = get_response(request)
+  File "/home/velavok/ML/DEEPLOM/WEB/lib/python3.6/site-packages/django/core/handlers/base.py", line 126, in _get_response
+    "returned None instead." % (callback.__module__, view_name)
+ValueError: The view Main.views.main didn't return an HttpResponse object. It returned None instead.
+INFO:django.utils.autoreload:/home/velavok/ML/DEEPLOM/WEB/Look4Face/Main/views.py changed, reloading.
+ERROR:django.request:Internal Server Error: /
+Traceback (most recent call last):
+  File "/home/velavok/ML/DEEPLOM/WEB/lib/python3.6/site-packages/django/core/handlers/exception.py", line 34, in inner
+    response = get_response(request)
+  File "/home/velavok/ML/DEEPLOM/WEB/lib/python3.6/site-packages/django/core/handlers/base.py", line 126, in _get_response
+    "returned None instead." % (callback.__module__, view_name)
+ValueError: The view Main.views.main didn't return an HttpResponse object. It returned None instead.
+INFO:django.utils.autoreload:/home/velavok/ML/DEEPLOM/WEB/Look4Face/Main/views.py changed, reloading.

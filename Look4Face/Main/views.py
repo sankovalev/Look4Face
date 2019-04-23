@@ -22,7 +22,7 @@ def main(request):
     if request.method == 'GET':
         # try:
         context = {
-            'title': 'Главная страница',
+            'title': 'Look4Face',
             }
         return render(request, 'index.html', context)
         # except Exception as e:
@@ -31,37 +31,44 @@ def main(request):
 
     # ЗАГРУЗИЛИ НОВУЮ ФОТКУ
     elif request.method == 'POST':
-        image = request.FILES.get('photo')
-        image_type = image.name.split('.')[-1] #png/jpg/jpeg
-        now = datetime.datetime.now()
-        image_path = f'{now.day}{now.month}{now.year}_{now.hour}:{now.minute}:{now.second}.{image_type}'
-        full_path = os.path.join(MEDIA_PATH, image_path)
-        with open(full_path, 'wb+') as destination:
-            destination.write(image.read())
-        img = Image.open(full_path)
-        bounding_boxes, landmarks = detect_faces(img)
-        count = bounding_boxes.shape[0]
-        if count == 0:
-            pass
-            # there are no faces on this photo
-            # TODO: send message
-        elif count == 1:
-            search(img.crop(bounding_boxes[0][:4]), landmarks)
-        else:
-            refine_face(request, img, bounding_boxes, landmarks, image_path)
+        # INITIAL SEARCH
+        if request.POST.get('refine') == "False":
+            image = request.FILES.get('photo')
+            image_type = image.name.split('.')[-1] #png/jpg/jpeg
+            now = datetime.datetime.now()
+            image_path = f'{now.day}{now.month}{now.year}_{now.hour}:{now.minute}:{now.second}.{image_type}'
+            full_path = os.path.join(MEDIA_PATH, image_path)
+            with open(full_path, 'wb+') as destination:
+                destination.write(image.read())
+            img = Image.open(full_path)
+            bounding_boxes, landmarks = detect_faces(img) #TODO: change onet/rnet/pnet path
+            count = bounding_boxes.shape[0]
+            if count == 0:
+                pass
+                return
+                # there are no faces on the photo
+                # TODO: send message
+            elif count == 1:
+                search(img.crop(bounding_boxes[0][:4]), landmarks[0])
+                
 
-        context = {
-            'title': str(type(img))
-        }        
-        return render(request, 'index.html', context)
+                return render(request, 'results.html', context)
+
+            else:
+                face_urls = refine_face(img, bounding_boxes, image_path)
+                context = {
+                    'title': 'Choose face',
+                    'faces_list': face_urls,
+                }
+                return render(request, 'refine.html', context)
+        # SEARCH AFTER REFINING
+        elif request.POST.get('refine') == "True":
+            return redirect('Main Page')
+
 
 def search(img, landmarks):
-    """Main search function
-    
-    Arguments:
-        img {[type]} -- [description]
-        landmarks {[type]} -- [description]
-    """
+    img = align_face(img, landmarks) #aligned 112x112 face
+
 
 
 def extract_features(img, landmarks):
@@ -73,30 +80,20 @@ def extract_features(img, landmarks):
     aligned_image = align_face(img, landmarks)
 
 
-def align_face(img, landmarks):
-    pass
-    return
+def align_face(img, landmarks, crop_size=112):
+    facial5points = [[landmarks[j], landmarks[j + 5]] for j in range(5)]
+    warped_face = warp_and_crop_face(np.array(img), facial5points, reference, crop_size=(crop_size, crop_size))
+    img_warped = Image.fromarray(warped_face)
+    return img_warped
 
 
-def refine_face(request, img, bounding_boxes, landmarks, image_path):
-    """Ask which face to look4
-    
-    Arguments:
-        img {[type]} -- [description]
-        bounding_boxes {[type]} -- [description]
-        landmarks {[type]} -- [description]
-    """
-    if request.method == 'GET':
-        count = bounding_boxes.shape[0]
-        face_urls = []
-        for i in range(count):
-            face = img.crop(bounding_boxes[i][:4])
-            face.save(os.path.join(MEDIA_PATH, CROPS_PATH, f'{i}_{image_path}'))
-            face_urls.append(os.path.join(CROPS_PATH, f'{i}_{image_path}'))
-        context = {
-            'title': 'Choose face',
-            'faces': face_urls
-        }
-        return render(request, 'refine.html', context)
-    elif request.method == 'POST':
-        face_name = request.POST.get('name')
+def refine_face(img, bounding_boxes, image_path):
+    count = bounding_boxes.shape[0]
+    face_urls = []
+    for i in range(count):
+        # face = img.resize((224, 224), box=bounding_boxes[i][:4])
+        face = img.crop(bounding_boxes[i][:4])
+        face = face.resize((175,175))
+        face.save(os.path.join(MEDIA_PATH, CROPS_PATH, f'{i}_{image_path}'))
+        face_urls.append(os.path.join(CROPS_PATH, f'{i}_{image_path}'))
+    return face_urls

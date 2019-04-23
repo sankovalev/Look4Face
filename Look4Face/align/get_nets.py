@@ -5,7 +5,7 @@ from collections import OrderedDict
 import numpy as np
 import os
 
-WEIGHTS_PATH = "/home/velavok/ML/DEEPLOM/FACE-EVOLVE/align" 
+WEIGHTS_PATH = "/home/velavok/ML/DEEPLOM/WEB/Look4Face/align" 
 
 class Flatten(nn.Module):
 
@@ -54,7 +54,7 @@ class PNet(nn.Module):
         self.conv4_1 = nn.Conv2d(32, 2, 1, 1)
         self.conv4_2 = nn.Conv2d(32, 4, 1, 1)
 
-        weights = np.load(os.path.join(WEIGHTS_PATH, "pnet.npy"))[()]
+        weights = np.load(os.path.join(WEIGHTS_PATH, "pnet.npy"), allow_pickle=True)[()]
         for n, p in self.named_parameters():
             p.data = torch.FloatTensor(weights[n])
 
@@ -99,7 +99,7 @@ class RNet(nn.Module):
         self.conv5_1 = nn.Linear(128, 2)
         self.conv5_2 = nn.Linear(128, 4)
 
-        weights = np.load(os.path.join(WEIGHTS_PATH, "rnet.npy"))[()]
+        weights = np.load(os.path.join(WEIGHTS_PATH, "rnet.npy"), allow_pickle=True)[()]
         for n, p in self.named_parameters():
             p.data = torch.FloatTensor(weights[n])
 
@@ -150,7 +150,7 @@ class ONet(nn.Module):
         self.conv6_2 = nn.Linear(256, 4)
         self.conv6_3 = nn.Linear(256, 10)
 
-        weights = np.load(os.path.join(WEIGHTS_PATH, "onet.npy"))[()]
+        weights = np.load(os.path.join(WEIGHTS_PATH, "onet.npy"), allow_pickle=True)[()]
         for n, p in self.named_parameters():
             p.data = torch.FloatTensor(weights[n])
 

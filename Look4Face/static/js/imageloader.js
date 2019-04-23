@@ -11,4 +11,10 @@ function readURL(input) {
 }
 $("#imageUpload").change(function() {
     readURL(this);
+    document.getElementById("searchbtn").disabled = false;
 });
+
+// activate button onclick
+function enableButton() {
+    document.getElementById("searchbtn").disabled = false;
+}
