@@ -10,6 +10,8 @@ import datetime
 logging.basicConfig(filename="look4face.log", level=logging.INFO)
 MEDIA_PATH = settings.MEDIA_ROOT
 CROPS_PATH = 'crops'
+reference = get_reference_facial_points(default_square = True)
+
 
 def main(request):
     """Displays the main page
@@ -41,21 +43,21 @@ def main(request):
             with open(full_path, 'wb+') as destination:
                 destination.write(image.read())
             img = Image.open(full_path)
-            bounding_boxes, landmarks = detect_faces(img) #TODO: change onet/rnet/pnet path
-            count = bounding_boxes.shape[0]
+            _, landmarks = detect_faces(img) #TODO: change onet/rnet/pnet path
+            count = landmarks.shape[0]
             if count == 0:
                 pass
                 return
                 # there are no faces on the photo
                 # TODO: send message
             elif count == 1:
-                search(img.crop(bounding_boxes[0][:4]), landmarks[0])
-                
+                search(img, landmarks[0])
+                # ...
 
                 return render(request, 'results.html', context)
 
             else:
-                face_urls = refine_face(img, bounding_boxes, image_path)
+                face_urls = refine_face(img, landmarks, image_path)
                 context = {
                     'title': 'Choose face',
                     'faces_list': face_urls,
@@ -63,21 +65,22 @@ def main(request):
                 return render(request, 'refine.html', context)
         # SEARCH AFTER REFINING
         elif request.POST.get('refine') == "True":
-            return redirect('Main Page')
+            image_id = int(request.POST.get('imagecrop')) # number of selected face
+
 
 
 def search(img, landmarks):
     img = align_face(img, landmarks) #aligned 112x112 face
+    # feature extraction
 
 
-
-def extract_features(img, landmarks):
-    """Extract face features
+# def extract_features(img, landmarks):
+#     """Extract face features
     
-    Arguments:
-        img {[type]} -- crop of image with face
-    """
-    aligned_image = align_face(img, landmarks)
+#     Arguments:
+#         img {[type]} -- crop of image with face
+#     """
+#     aligned_image = align_face(img, landmarks)
 
 
 def align_face(img, landmarks, crop_size=112):
@@ -87,13 +90,14 @@ def align_face(img, landmarks, crop_size=112):
     return img_warped
 
 
-def refine_face(img, bounding_boxes, image_path):
-    count = bounding_boxes.shape[0]
+def refine_face(img, landmarks, image_path):
+    count = landmarks.shape[0]
     face_urls = []
     for i in range(count):
         # face = img.resize((224, 224), box=bounding_boxes[i][:4])
-        face = img.crop(bounding_boxes[i][:4])
-        face = face.resize((175,175))
+        face = align_face(img, landmarks[i], crop_size=112) # try 224x224
+        # face = img.crop(bounding_boxes[i][:4])
+        # face = face.resize((175,175))
         face.save(os.path.join(MEDIA_PATH, CROPS_PATH, f'{i}_{image_path}'))
         face_urls.append(os.path.join(CROPS_PATH, f'{i}_{image_path}'))
     return face_urls

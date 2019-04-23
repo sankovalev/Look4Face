@@ -91,7 +91,7 @@ html,body{
   height: 100%;
 }
 .col img{
-  height:175px;
+  height:112px;
   width: 100%;
   cursor: pointer;
   transition: transform 1s;

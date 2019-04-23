@@ -10,7 +10,7 @@
     <div class="row">
         {% for face in faces_list %}
             <div class='col text-center'>
-                <input onclick="enableButton()" type="radio" name="imagecrop" id="{{face}}" class="d-none imgbgchk" value="{{forloop.counter0}}">
+                <input onclick="enableButton()" type="radio" name="imagecrop" id="{{face}}" class="d-none imgbgchk" value="{{face}}">
                 <label for="{{face}}">
                     <img src="/media/{{face}}">
                     <div class="tick_container">
