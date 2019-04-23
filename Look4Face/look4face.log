@@ -286,3 +286,7 @@ Traceback (most recent call last):
     with open(image_path, 'wb+') as destination:
 FileNotFoundError: [Errno 2] No such file or directory: '/home/velavok/ML/DEEPLOM/WEB/Look4Face/media/media_root/2342019/17:46:27_Vladimir_Putin_0008.jpg'
 INFO:django.utils.autoreload:/home/velavok/ML/DEEPLOM/WEB/Look4Face/Main/views.py changed, reloading.
+INFO:django.utils.autoreload:/home/velavok/ML/DEEPLOM/WEB/Look4Face/Main/views.py changed, reloading.
+INFO:django.utils.autoreload:/home/velavok/ML/DEEPLOM/WEB/Look4Face/Main/views.py changed, reloading.
+INFO:django.utils.autoreload:/home/velavok/ML/DEEPLOM/WEB/Look4Face/Main/views.py changed, reloading.
+INFO:django.utils.autoreload:/home/velavok/ML/DEEPLOM/WEB/Look4Face/Main/views.py changed, reloading.
