@@ -216,3 +216,73 @@ Traceback (most recent call last):
     fp = io.BytesIO(fp.read())
 AttributeError: 'bytes' object has no attribute 'read'
 INFO:django.utils.autoreload:/home/velavok/ML/DEEPLOM/WEB/Look4Face/Main/views.py changed, reloading.
+ERROR:django.request:Internal Server Error: /
+Traceback (most recent call last):
+  File "/home/velavok/ML/DEEPLOM/WEB/lib/python3.6/site-packages/django/core/handlers/exception.py", line 34, in inner
+    response = get_response(request)
+  File "/home/velavok/ML/DEEPLOM/WEB/lib/python3.6/site-packages/django/core/handlers/base.py", line 115, in _get_response
+    response = self.process_exception_by_middleware(e, request)
+  File "/home/velavok/ML/DEEPLOM/WEB/lib/python3.6/site-packages/django/core/handlers/base.py", line 113, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "/home/velavok/ML/DEEPLOM/WEB/Look4Face/Main/views.py", line 40, in main
+    return render(request, 'index.html', context)
+  File "/home/velavok/ML/DEEPLOM/WEB/lib/python3.6/site-packages/django/shortcuts.py", line 36, in render
+    content = loader.render_to_string(template_name, context, request, using=using)
+  File "/home/velavok/ML/DEEPLOM/WEB/lib/python3.6/site-packages/django/template/loader.py", line 62, in render_to_string
+    return template.render(context, request)
+  File "/home/velavok/ML/DEEPLOM/WEB/lib/python3.6/site-packages/django/template/backends/django.py", line 61, in render
+    return self.template.render(context)
+  File "/home/velavok/ML/DEEPLOM/WEB/lib/python3.6/site-packages/django/template/base.py", line 171, in render
+    return self._render(context)
+  File "/home/velavok/ML/DEEPLOM/WEB/lib/python3.6/site-packages/django/template/base.py", line 163, in _render
+    return self.nodelist.render(context)
+  File "/home/velavok/ML/DEEPLOM/WEB/lib/python3.6/site-packages/django/template/base.py", line 937, in render
+    bit = node.render_annotated(context)
+  File "/home/velavok/ML/DEEPLOM/WEB/lib/python3.6/site-packages/django/template/base.py", line 904, in render_annotated
+    return self.render(context)
+  File "/home/velavok/ML/DEEPLOM/WEB/lib/python3.6/site-packages/django/template/loader_tags.py", line 150, in render
+    return compiled_parent._render(context)
+  File "/home/velavok/ML/DEEPLOM/WEB/lib/python3.6/site-packages/django/template/base.py", line 163, in _render
+    return self.nodelist.render(context)
+  File "/home/velavok/ML/DEEPLOM/WEB/lib/python3.6/site-packages/django/template/base.py", line 937, in render
+    bit = node.render_annotated(context)
+  File "/home/velavok/ML/DEEPLOM/WEB/lib/python3.6/site-packages/django/template/base.py", line 904, in render_annotated
+    return self.render(context)
+  File "/home/velavok/ML/DEEPLOM/WEB/lib/python3.6/site-packages/django/template/loader_tags.py", line 188, in render
+    return template.render(context)
+  File "/home/velavok/ML/DEEPLOM/WEB/lib/python3.6/site-packages/django/template/base.py", line 173, in render
+    return self._render(context)
+  File "/home/velavok/ML/DEEPLOM/WEB/lib/python3.6/site-packages/django/template/base.py", line 163, in _render
+    return self.nodelist.render(context)
+  File "/home/velavok/ML/DEEPLOM/WEB/lib/python3.6/site-packages/django/template/base.py", line 937, in render
+    bit = node.render_annotated(context)
+  File "/home/velavok/ML/DEEPLOM/WEB/lib/python3.6/site-packages/django/template/base.py", line 904, in render_annotated
+    return self.render(context)
+  File "/home/velavok/ML/DEEPLOM/WEB/lib/python3.6/site-packages/django/template/base.py", line 987, in render
+    output = self.filter_expression.resolve(context)
+  File "/home/velavok/ML/DEEPLOM/WEB/lib/python3.6/site-packages/django/template/base.py", line 671, in resolve
+    obj = self.var.resolve(context)
+  File "/home/velavok/ML/DEEPLOM/WEB/lib/python3.6/site-packages/django/template/base.py", line 796, in resolve
+    value = self._resolve_lookup(context)
+  File "/home/velavok/ML/DEEPLOM/WEB/lib/python3.6/site-packages/django/template/base.py", line 858, in _resolve_lookup
+    current = current()
+  File "/home/velavok/ML/DEEPLOM/WEB/lib/python3.6/site-packages/PIL/ImageFile.py", line 103, in __init__
+    self._open()
+  File "/home/velavok/ML/DEEPLOM/WEB/lib/python3.6/site-packages/PIL/JpegImagePlugin.py", line 342, in _open
+    s = self.fp.read(1)
+AttributeError: 'NoneType' object has no attribute 'read'
+INFO:django.utils.autoreload:/home/velavok/ML/DEEPLOM/WEB/Look4Face/Main/views.py changed, reloading.
+INFO:django.utils.autoreload:/home/velavok/ML/DEEPLOM/WEB/Look4Face/Main/views.py changed, reloading.
+INFO:django.utils.autoreload:/home/velavok/ML/DEEPLOM/WEB/Look4Face/Main/views.py changed, reloading.
+ERROR:django.request:Internal Server Error: /
+Traceback (most recent call last):
+  File "/home/velavok/ML/DEEPLOM/WEB/lib/python3.6/site-packages/django/core/handlers/exception.py", line 34, in inner
+    response = get_response(request)
+  File "/home/velavok/ML/DEEPLOM/WEB/lib/python3.6/site-packages/django/core/handlers/base.py", line 115, in _get_response
+    response = self.process_exception_by_middleware(e, request)
+  File "/home/velavok/ML/DEEPLOM/WEB/lib/python3.6/site-packages/django/core/handlers/base.py", line 113, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "/home/velavok/ML/DEEPLOM/WEB/Look4Face/Main/views.py", line 36, in main
+    with open(image_path, 'wb+') as destination:
+FileNotFoundError: [Errno 2] No such file or directory: '/home/velavok/ML/DEEPLOM/WEB/Look4Face/media/media_root/2342019/17:46:27_Vladimir_Putin_0008.jpg'
+INFO:django.utils.autoreload:/home/velavok/ML/DEEPLOM/WEB/Look4Face/Main/views.py changed, reloading.
