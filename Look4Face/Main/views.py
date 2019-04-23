@@ -19,7 +19,7 @@ def main(request):
     Arguments:
         request {[type]} -- [description]
     """
-    logger = logging.getLogger('main')
+    # logger = logging.getLogger('main')
     # ОТОБРАЖАЕМ СТРАНИЦУ
     if request.method == 'GET':
         # try:
