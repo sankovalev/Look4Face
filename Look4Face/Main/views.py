@@ -1,6 +1,13 @@
 from django.shortcuts import render, redirect
+from django.conf import settings
+from PIL import Image
+from align.detector import detect_faces
+from align.align_trans import get_reference_facial_points, warp_and_crop_face
+import numpy as np
 import logging
+import os
 logging.basicConfig(filename="look4face.log", level=logging.INFO)
+MEDIA_PATH = settings.MEDIA_ROOT
 
 def main(request):
     """Displays the main page
@@ -9,6 +16,7 @@ def main(request):
         request {[type]} -- [description]
     """
     logger = logging.getLogger('main')
+    # ОТОБРАЖАЕМ СТРАНИЦУ
     if request.method == 'GET':
         # try:
         context = {
@@ -18,6 +26,20 @@ def main(request):
         # except Exception as e:
         #     logger.error(f'GET-request, {str(e)}')
         #     return redirect('Main Page')
-    else:
-        logger.warning(f'Запрос не обработан, {str(e)}')
-        return redirect('Main Page')
+    # ЗАГРУЗИЛИ НОВУЮ ФОТКУ
+    elif request.method == 'POST':
+        image = request.FILES.get('photo')
+        with open(os.path.join(MEDIA_PATH, image.name), 'wb+') as destination:
+            destination.write(image.read())
+        
+        img = Image.open(os.path.join(MEDIA_PATH, image.name))
+
+        context = {
+            'title': type(img)
+        }        
+        return render(request, 'index.html', context)
+
+
+# def detect_faces(image):
+#     pass
+#     return

@@ -5,11 +5,11 @@
 <div class="container">
     <h2 class="tm-block-title">Загрузите фотографию человека из LFW. На изображении может быть несколько лиц.</h2>
     <div class="tm-avatar-container">
+        <form enctype="multipart/form-data" name="new_face" method="POST" action="">{% csrf_token %}
         <div class="avatar-upload">
             <div class="avatar-edit">
-                <input type='file' id="imageUpload" accept=".png, .jpg, .jpeg" />
+                <input type='file' id="imageUpload" name="photo" accept=".png, .jpg, .jpeg" />
                 <label for="imageUpload"></label>
-                
             </div>
             <div class="avatar-preview">
                 <div id="imagePreview" style="background-image: url({% static 'img/empty.png' %});">
@@ -17,6 +17,7 @@
             </div>
         </div>
         <button class="btn btn-primary btn-block text-uppercase">Искать</button>
+        </form>
     </div>
 </div>
 

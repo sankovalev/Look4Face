@@ -103,3 +103,116 @@ Traceback (most recent call last):
   File "/home/velavok/ML/DEEPLOM/WEB/lib/python3.6/site-packages/django/template/base.py", line 528, in invalid_block_tag
     get_text_list(["'%s'" % p for p in parse_until], 'or'),
 django.template.exceptions.TemplateSyntaxError: Invalid block tag on line 16: '{%', expected 'endblock'. Did you forget to register or load this tag?
+WARNING:django.request:Not Found: /favicon.ico
+ERROR:django.request:Internal Server Error: /
+Traceback (most recent call last):
+  File "/home/velavok/ML/DEEPLOM/WEB/lib/python3.6/site-packages/django/core/handlers/exception.py", line 34, in inner
+    response = get_response(request)
+  File "/home/velavok/ML/DEEPLOM/WEB/lib/python3.6/site-packages/django/core/handlers/base.py", line 115, in _get_response
+    response = self.process_exception_by_middleware(e, request)
+  File "/home/velavok/ML/DEEPLOM/WEB/lib/python3.6/site-packages/django/core/handlers/base.py", line 113, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "/home/velavok/ML/DEEPLOM/WEB/Look4Face/Main/views.py", line 22, in main
+    logger.warning(f'Запрос не обработан, {str(e)}')
+NameError: name 'e' is not defined
+INFO:django.utils.autoreload:/home/velavok/ML/DEEPLOM/WEB/Look4Face/Main/views.py changed, reloading.
+WARNING:django.request:Not Found: /accounts.html
+WARNING:django.request:Not Found: /products.html
+INFO:django.utils.autoreload:/home/velavok/ML/DEEPLOM/WEB/Look4Face/Main/views.py changed, reloading.
+INFO:django.utils.autoreload:/home/velavok/ML/DEEPLOM/WEB/Look4Face/Main/views.py changed, reloading.
+INFO:django.utils.autoreload:/home/velavok/ML/DEEPLOM/WEB/Look4Face/Main/views.py changed, reloading.
+INFO:django.utils.autoreload:/home/velavok/ML/DEEPLOM/WEB/Look4Face/Main/views.py changed, reloading.
+ERROR:django.request:Internal Server Error: /
+Traceback (most recent call last):
+  File "/home/velavok/ML/DEEPLOM/WEB/lib/python3.6/site-packages/django/core/handlers/exception.py", line 34, in inner
+    response = get_response(request)
+  File "/home/velavok/ML/DEEPLOM/WEB/lib/python3.6/site-packages/django/core/handlers/base.py", line 115, in _get_response
+    response = self.process_exception_by_middleware(e, request)
+  File "/home/velavok/ML/DEEPLOM/WEB/lib/python3.6/site-packages/django/core/handlers/base.py", line 113, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "/home/velavok/ML/DEEPLOM/WEB/Look4Face/Main/views.py", line 29, in main
+    img = Image.open(image)
+  File "/home/velavok/ML/DEEPLOM/WEB/lib/python3.6/site-packages/PIL/Image.py", line 2652, in open
+    fp = builtins.open(filename, "rb")
+FileNotFoundError: [Errno 2] No such file or directory: 'nophoto.jpg'
+ERROR:django.request:Internal Server Error: /
+Traceback (most recent call last):
+  File "/home/velavok/ML/DEEPLOM/WEB/lib/python3.6/site-packages/django/core/handlers/exception.py", line 34, in inner
+    response = get_response(request)
+  File "/home/velavok/ML/DEEPLOM/WEB/lib/python3.6/site-packages/django/core/handlers/base.py", line 115, in _get_response
+    response = self.process_exception_by_middleware(e, request)
+  File "/home/velavok/ML/DEEPLOM/WEB/lib/python3.6/site-packages/django/core/handlers/base.py", line 113, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "/home/velavok/ML/DEEPLOM/WEB/Look4Face/Main/views.py", line 29, in main
+    img = Image.open(image)
+  File "/home/velavok/ML/DEEPLOM/WEB/lib/python3.6/site-packages/PIL/Image.py", line 2652, in open
+    fp = builtins.open(filename, "rb")
+FileNotFoundError: [Errno 2] No such file or directory: 'nophoto.jpg'
+INFO:django.utils.autoreload:/home/velavok/ML/DEEPLOM/WEB/Look4Face/Main/views.py changed, reloading.
+ERROR:django.request:Internal Server Error: /
+Traceback (most recent call last):
+  File "/home/velavok/ML/DEEPLOM/WEB/lib/python3.6/site-packages/django/core/handlers/exception.py", line 34, in inner
+    response = get_response(request)
+  File "/home/velavok/ML/DEEPLOM/WEB/lib/python3.6/site-packages/django/core/handlers/base.py", line 115, in _get_response
+    response = self.process_exception_by_middleware(e, request)
+  File "/home/velavok/ML/DEEPLOM/WEB/lib/python3.6/site-packages/django/core/handlers/base.py", line 113, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "/home/velavok/ML/DEEPLOM/WEB/Look4Face/Main/views.py", line 29, in main
+    with open('media/putin.jpg', 'wb+') as destination:
+FileNotFoundError: [Errno 2] No such file or directory: 'media/putin.jpg'
+INFO:django.utils.autoreload:/home/velavok/ML/DEEPLOM/WEB/Look4Face/Main/views.py changed, reloading.
+ERROR:django.request:Internal Server Error: /
+Traceback (most recent call last):
+  File "/home/velavok/ML/DEEPLOM/WEB/lib/python3.6/site-packages/django/core/handlers/exception.py", line 34, in inner
+    response = get_response(request)
+  File "/home/velavok/ML/DEEPLOM/WEB/lib/python3.6/site-packages/django/core/handlers/base.py", line 115, in _get_response
+    response = self.process_exception_by_middleware(e, request)
+  File "/home/velavok/ML/DEEPLOM/WEB/lib/python3.6/site-packages/django/core/handlers/base.py", line 113, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "/home/velavok/ML/DEEPLOM/WEB/Look4Face/Main/views.py", line 29, in main
+    with open('media/putin.jpg', 'wb+') as destination:
+FileNotFoundError: [Errno 2] No such file or directory: 'media/putin.jpg'
+INFO:django.utils.autoreload:/home/velavok/ML/DEEPLOM/WEB/Look4Face/Main/views.py changed, reloading.
+ERROR:django.request:Internal Server Error: /
+Traceback (most recent call last):
+  File "/home/velavok/ML/DEEPLOM/WEB/lib/python3.6/site-packages/django/core/handlers/exception.py", line 34, in inner
+    response = get_response(request)
+  File "/home/velavok/ML/DEEPLOM/WEB/lib/python3.6/site-packages/django/core/handlers/base.py", line 115, in _get_response
+    response = self.process_exception_by_middleware(e, request)
+  File "/home/velavok/ML/DEEPLOM/WEB/lib/python3.6/site-packages/django/core/handlers/base.py", line 113, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "/home/velavok/ML/DEEPLOM/WEB/Look4Face/Main/views.py", line 32, in main
+    with open(os.path.join(MEDIA_PATH, image.name), 'wb+') as destination:
+AttributeError: 'NoneType' object has no attribute 'name'
+ERROR:django.request:Internal Server Error: /
+Traceback (most recent call last):
+  File "/home/velavok/ML/DEEPLOM/WEB/lib/python3.6/site-packages/django/core/handlers/exception.py", line 34, in inner
+    response = get_response(request)
+  File "/home/velavok/ML/DEEPLOM/WEB/lib/python3.6/site-packages/django/core/handlers/base.py", line 115, in _get_response
+    response = self.process_exception_by_middleware(e, request)
+  File "/home/velavok/ML/DEEPLOM/WEB/lib/python3.6/site-packages/django/core/handlers/base.py", line 113, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "/home/velavok/ML/DEEPLOM/WEB/Look4Face/Main/views.py", line 32, in main
+    with open(os.path.join(MEDIA_PATH, image.name), 'wb+') as destination:
+FileNotFoundError: [Errno 2] No such file or directory: '/home/velavok/ML/DEEPLOM/WEB/Look4Face/media/media_root/Vladimir_Putin_0013.jpg'
+ERROR:django.request:Internal Server Error: /
+Traceback (most recent call last):
+  File "/home/velavok/ML/DEEPLOM/WEB/lib/python3.6/site-packages/PIL/Image.py", line 2656, in open
+    fp.seek(0)
+AttributeError: 'bytes' object has no attribute 'seek'
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/home/velavok/ML/DEEPLOM/WEB/lib/python3.6/site-packages/django/core/handlers/exception.py", line 34, in inner
+    response = get_response(request)
+  File "/home/velavok/ML/DEEPLOM/WEB/lib/python3.6/site-packages/django/core/handlers/base.py", line 115, in _get_response
+    response = self.process_exception_by_middleware(e, request)
+  File "/home/velavok/ML/DEEPLOM/WEB/lib/python3.6/site-packages/django/core/handlers/base.py", line 113, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "/home/velavok/ML/DEEPLOM/WEB/Look4Face/Main/views.py", line 35, in main
+    img = Image.open(image.read())
+  File "/home/velavok/ML/DEEPLOM/WEB/lib/python3.6/site-packages/PIL/Image.py", line 2658, in open
+    fp = io.BytesIO(fp.read())
+AttributeError: 'bytes' object has no attribute 'read'
+INFO:django.utils.autoreload:/home/velavok/ML/DEEPLOM/WEB/Look4Face/Main/views.py changed, reloading.
