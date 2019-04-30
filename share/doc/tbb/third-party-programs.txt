@@ -1,4 +1,0 @@
-This third-party-programs.txt file applies to the Intel(R) Threading Building Blocks 2019 (Intel(R) TBB).
-
-- vc_mt and vc14_uwd versions of Intel TBB binaries for Windows* platform includes statically linked
-    C Runtime. Microsoft* End-User License Agreement should be applied to distribution of these binaries.

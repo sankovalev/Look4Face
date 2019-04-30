@@ -24,7 +24,7 @@ urlpatterns = [
     #Main
     url(r'^$', Main_views.main, name='Main Page'),
     url(r'^admin/', admin.site.urls, name='Admin Page'),
-] + static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)
+] + static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT) + static('dataset', document_root='dataset')
 
 #django_debug
 # if settings.DEBUG:

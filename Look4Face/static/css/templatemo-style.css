@@ -172,8 +172,8 @@ button:focus {
   width: 21.95%;
 }
 .tm-gray-circle {
-  width: 80px;
-  height: 80px;
+  width: 112px;
+  height: 112px;
   background-color: #aaa;
   border-radius: 50%;
   margin-right: 15px;
@@ -183,8 +183,8 @@ button:focus {
   height: 90%;
 }
 .tm-notification-item {
-  padding: 15px;
-  background-color: #4e657a;
+  padding: 20px;
+  background-color: #435c70;
   color: #fff;
   font-size: 95%;
   margin-bottom: 15px;
@@ -195,6 +195,11 @@ button:focus {
 .tm-notification-link {
   color: #f5a623;
 }
+.avatar{
+  height: 100%;
+}
+
+
 .tm-text-color-secondary {
   color: #bdcbd8;
 }

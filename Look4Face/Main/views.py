@@ -3,9 +3,16 @@ from django.conf import settings
 from PIL import Image
 from align.detector import detect_faces
 from align.align_trans import get_reference_facial_points, warp_and_crop_face
+import faiss
+from collections import Counter
+from util.extract_features import extract_one_embedding
+from backbone.model_resnet import ResNet_50
 import numpy as np
 import logging
+import operator
 import os
+import pickle
+import random
 import datetime
 logging.basicConfig(filename="look4face.log", level=logging.INFO)
 MEDIA_PATH = settings.MEDIA_ROOT
@@ -20,17 +27,12 @@ def main(request):
     Arguments:
         request {[type]} -- [description]
     """
-    # logger = logging.getLogger('main')
     # ОТОБРАЖАЕМ СТРАНИЦУ
     if request.method == 'GET':
-        # try:
         context = {
-            'title': 'Look4Face',
+            'title': 'Main',
             }
         return render(request, 'index.html', context)
-        # except Exception as e:
-        #     logger.error(f'GET-request, {str(e)}')
-        #     return redirect('Main Page')
 
     # ЗАГРУЗИЛИ НОВУЮ ФОТКУ
     elif request.method == 'POST':
@@ -48,14 +50,18 @@ def main(request):
             count = landmarks.shape[0]
             if count == 0:
                 pass
-                return
                 # there are no faces on the photo
                 # TODO: send message
+                return redirect('Main Page')
             elif count == 1:
                 img = align_face(img, landmarks[0]) # cropped aligned face, ready for search
                 D, I = search(img) # distances and indexes
-                print(D,I)
+                results_dict = results(D,I)
 
+                context = {
+                    'title': 'Search Results',
+                    'results_dict': results_dict
+                }
                 return render(request, 'results.html', context)
 
             else:
@@ -71,17 +77,16 @@ def main(request):
             full_path = os.path.join(MEDIA_PATH, image_path)
             img = Image.open(full_path) # cropped aligned face, ready for search
             D, I = search(img) # distances and indexes
-            print(D,I)
+            results_dict = results(D,I)
+
+            context = {
+                'title': 'Результаты поиска',
+                'results_dict': results_dict
+            }
             return render(request, 'results.html', context)
 
 
 def search(img, k=10, nprobe=10):
-    import mkl
-    mkl.get_max_threads()
-    import faiss
-    from util.extract_features import extract_one_embedding
-    from backbone.model_resnet import ResNet_50
-
     backbone = ResNet_50([112,112])
     pth = os.path.join(settings.BACKBONE_DIR, 'Backbone.pth') # Pretrained backbone for ResNet50
     
@@ -92,6 +97,28 @@ def search(img, k=10, nprobe=10):
     query = np.array(extract_one_embedding(img, backbone, pth)).astype('float32').reshape(1,-1)
     D,I = index.search(query, k)
     return D[0], I[0]
+
+
+def results(D, I):
+    """Analyze neighbors
+    
+    Arguments:
+        D {np.array} -- Distances to neighbors
+        I {np.array} -- Indexes of neighbors 
+    """
+    lst = list(I)
+    # calculate probabilities
+    proba_dict = dict.fromkeys(list(set(lst)), 0.0)
+    for i, label in enumerate(lst):
+        proba_dict[label] += 1/(i+1) # weight for each neighbour
+    proba_dict = {k: v for k, v in sorted(proba_dict.items(), key=lambda x: x[1], reverse=True)}
+    total = sum(proba_dict.values(), 0.0)
+    # read real names and rename keys
+    with open(os.path.join(DATASET_PATH, 'labels.pkl'), 'rb') as f:
+        names = pickle.load(f) # load real names
+    proba_dict = {names[k].replace('_', ' '): [round(v/total*100,2), os.path.join('dataset','lfw', str(k), random.choice(os.listdir(os.path.join(DATASET_PATH, 'lfw', str(k)))))] for k, v in proba_dict.items()} # 'name1':[probability1,photo1] ...
+    
+    return proba_dict
 
 
 def align_face(img, landmarks, crop_size=112):
@@ -105,10 +132,7 @@ def refine_face(img, landmarks, image_path):
     count = landmarks.shape[0]
     face_urls = []
     for i in range(count):
-        # face = img.resize((224, 224), box=bounding_boxes[i][:4])
-        face = align_face(img, landmarks[i], crop_size=112) # try 224x224
-        # face = img.crop(bounding_boxes[i][:4])
-        # face = face.resize((175,175))
+        face = align_face(img, landmarks[i], crop_size=112)
         face.save(os.path.join(MEDIA_PATH, CROPS_PATH, f'{i}_{image_path}'))
         face_urls.append(os.path.join(CROPS_PATH, f'{i}_{image_path}'))
     return face_urls
