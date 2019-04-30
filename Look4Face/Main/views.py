@@ -9,6 +9,7 @@ import os
 import datetime
 logging.basicConfig(filename="look4face.log", level=logging.INFO)
 MEDIA_PATH = settings.MEDIA_ROOT
+DATASET_PATH = settings.DATASET_DIR
 CROPS_PATH = 'crops'
 reference = get_reference_facial_points(default_square = True)
 
@@ -52,7 +53,8 @@ def main(request):
                 # TODO: send message
             elif count == 1:
                 img = align_face(img, landmarks[0]) # cropped aligned face, ready for search
-                # ...
+                D, I = search(img) # distances and indexes
+                print(D,I)
 
                 return render(request, 'results.html', context)
 
@@ -68,21 +70,28 @@ def main(request):
             image_path = request.POST.get('imagecrop') # number selected face
             full_path = os.path.join(MEDIA_PATH, image_path)
             img = Image.open(full_path) # cropped aligned face, ready for search
+            D, I = search(img) # distances and indexes
+            print(D,I)
+            return render(request, 'results.html', context)
 
 
+def search(img, k=10, nprobe=10):
+    import mkl
+    mkl.get_max_threads()
+    import faiss
+    from util.extract_features import extract_one_embedding
+    from backbone.model_resnet import ResNet_50
 
-def search(img, landmarks):
-    img = align_face(img, landmarks) #aligned 112x112 face
-    # feature extraction
-
-
-# def extract_features(img, landmarks):
-#     """Extract face features
+    backbone = ResNet_50([112,112])
+    pth = os.path.join(settings.BACKBONE_DIR, 'Backbone.pth') # Pretrained backbone for ResNet50
     
-#     Arguments:
-#         img {[type]} -- crop of image with face
-#     """
-#     aligned_image = align_face(img, landmarks)
+    index = faiss.read_index(os.path.join(DATASET_PATH, 'index.bin')) # load index
+    index_ivf = faiss.downcast_index(index.index)
+    index_ivf.nprobe = nprobe # change nprobe
+
+    query = np.array(extract_one_embedding(img, backbone, pth)).astype('float32').reshape(1,-1)
+    D,I = index.search(query, k)
+    return D[0], I[0]
 
 
 def align_face(img, landmarks, crop_size=112):

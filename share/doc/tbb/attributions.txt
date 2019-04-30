@@ -1,0 +1,21 @@
+-----------------------------
+Third Party Components Attributions
+-----------------------------
+
+The following are licenses for third party software that was used in and/or to develop the Intel software development tools and/or associated documentation ("SOFTWARE") that you installed. These third party software and licenses are listed due to their attribution requirements. For clarity, the SOFTWARE is solely governed by the terms and conditions of the license that accompanies the SOFTWARE that you installed.
+
+Specifically, "SOFTWARE" means Intel(R) Threading Building Blocks and the license means Intel Simplified Software License.
+
+ActiveState Thread pool with same API as (multi)processing.Pool (Python recipe) (http://code.activestate.com/recipes/576519-thread-pool-with-same-api-as-multiprocessingpool/) - BSD 3-clause "New" or "Revised" License
+
+Tachyon (http://jedi.ks.uiuc.edu/~johns/raytracer/) - BSD 3-clause "New" or "Revised" License
+
+gperftools (http://code.google.com/p/gperftools/) - BSD 3-clause "New" or "Revised" License
+
+Instrumentation and Tracing Technology (ITT) Notify User API - BSD 3-clause "New" or "Revised" License
+
+Bzip2 (http://www.bzip.org/) - Bzip2 License
+
+Apple OpenGL Image Sample Source Code - Apple MIT License
+
+LodePNG (http://lodev.org/lodepng/) - zlib License

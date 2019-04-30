@@ -763,3 +763,69 @@ Traceback (most recent call last):
     "returned None instead." % (callback.__module__, view_name)
 ValueError: The view Main.views.main didn't return an HttpResponse object. It returned None instead.
 INFO:django.utils.autoreload:/home/velavok/ML/DEEPLOM/WEB/Look4Face/Main/views.py changed, reloading.
+WARNING:django.request:Not Found: /favicon.ico
+WARNING:django.request:Not Found: /favicon.ico
+ERROR:django.request:Internal Server Error: /
+Traceback (most recent call last):
+  File "/home/velavok/ML/DEEPLOM/WEB/lib/python3.6/site-packages/django/core/handlers/exception.py", line 34, in inner
+    response = get_response(request)
+  File "/home/velavok/ML/DEEPLOM/WEB/lib/python3.6/site-packages/django/core/handlers/base.py", line 115, in _get_response
+    response = self.process_exception_by_middleware(e, request)
+  File "/home/velavok/ML/DEEPLOM/WEB/lib/python3.6/site-packages/django/core/handlers/base.py", line 113, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "/home/velavok/ML/DEEPLOM/WEB/Look4Face/Main/views.py", line 73, in main
+    D, I = search(img) # distances and indexes
+  File "/home/velavok/ML/DEEPLOM/WEB/Look4Face/Main/views.py", line 79, in search
+    import mkl
+ModuleNotFoundError: No module named 'mkl'
+ERROR:django.request:Internal Server Error: /
+Traceback (most recent call last):
+  File "/home/velavok/ML/DEEPLOM/WEB/lib/python3.6/site-packages/django/core/handlers/exception.py", line 34, in inner
+    response = get_response(request)
+  File "/home/velavok/ML/DEEPLOM/WEB/lib/python3.6/site-packages/django/core/handlers/base.py", line 115, in _get_response
+    response = self.process_exception_by_middleware(e, request)
+  File "/home/velavok/ML/DEEPLOM/WEB/lib/python3.6/site-packages/django/core/handlers/base.py", line 113, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "/home/velavok/ML/DEEPLOM/WEB/Look4Face/Main/views.py", line 73, in main
+    D, I = search(img) # distances and indexes
+  File "/home/velavok/ML/DEEPLOM/WEB/Look4Face/Main/views.py", line 79, in search
+    import mkl
+ModuleNotFoundError: No module named 'mkl'
+ERROR:django.request:Internal Server Error: /
+Traceback (most recent call last):
+  File "/home/velavok/ML/DEEPLOM/WEB/lib/python3.6/site-packages/faiss/swigfaiss.py", line 14, in swig_import_helper
+    return importlib.import_module(mname)
+  File "/home/velavok/anaconda3/lib/python3.6/importlib/__init__.py", line 126, in import_module
+    return _bootstrap._gcd_import(name[level:], package, level)
+  File "<frozen importlib._bootstrap>", line 994, in _gcd_import
+  File "<frozen importlib._bootstrap>", line 971, in _find_and_load
+  File "<frozen importlib._bootstrap>", line 955, in _find_and_load_unlocked
+  File "<frozen importlib._bootstrap>", line 658, in _load_unlocked
+  File "<frozen importlib._bootstrap>", line 571, in module_from_spec
+  File "<frozen importlib._bootstrap_external>", line 922, in create_module
+  File "<frozen importlib._bootstrap>", line 219, in _call_with_frames_removed
+ImportError: libomp.so: cannot open shared object file: No such file or directory
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/home/velavok/ML/DEEPLOM/WEB/lib/python3.6/site-packages/django/core/handlers/exception.py", line 34, in inner
+    response = get_response(request)
+  File "/home/velavok/ML/DEEPLOM/WEB/lib/python3.6/site-packages/django/core/handlers/base.py", line 115, in _get_response
+    response = self.process_exception_by_middleware(e, request)
+  File "/home/velavok/ML/DEEPLOM/WEB/lib/python3.6/site-packages/django/core/handlers/base.py", line 113, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "/home/velavok/ML/DEEPLOM/WEB/Look4Face/Main/views.py", line 56, in main
+    D, I = search(img) # distances and indexes
+  File "/home/velavok/ML/DEEPLOM/WEB/Look4Face/Main/views.py", line 81, in search
+    import faiss
+  File "/home/velavok/ML/DEEPLOM/WEB/lib/python3.6/site-packages/faiss/__init__.py", line 19, in <module>
+    from .swigfaiss import *
+  File "/home/velavok/ML/DEEPLOM/WEB/lib/python3.6/site-packages/faiss/swigfaiss.py", line 17, in <module>
+    _swigfaiss = swig_import_helper()
+  File "/home/velavok/ML/DEEPLOM/WEB/lib/python3.6/site-packages/faiss/swigfaiss.py", line 16, in swig_import_helper
+    return importlib.import_module('_swigfaiss')
+  File "/home/velavok/anaconda3/lib/python3.6/importlib/__init__.py", line 126, in import_module
+    return _bootstrap._gcd_import(name[level:], package, level)
+ModuleNotFoundError: No module named '_swigfaiss'
+INFO:django.utils.autoreload:/home/velavok/ML/DEEPLOM/WEB/Look4Face/Main/views.py changed, reloading.
