@@ -5,7 +5,8 @@ from collections import OrderedDict
 import numpy as np
 import os
 
-WEIGHTS_PATH = "/home/velavok/ML/DEEPLOM/WEB/Look4Face/align" 
+# TODO: ИСПРАВИТЬ!
+WEIGHTS_PATH = "align" 
 
 class Flatten(nn.Module):
 
@@ -54,6 +55,7 @@ class PNet(nn.Module):
         self.conv4_1 = nn.Conv2d(32, 2, 1, 1)
         self.conv4_2 = nn.Conv2d(32, 4, 1, 1)
 
+        print(os.listdir())
         weights = np.load(os.path.join(WEIGHTS_PATH, "pnet.npy"), allow_pickle=True)[()]
         for n, p in self.named_parameters():
             p.data = torch.FloatTensor(weights[n])
