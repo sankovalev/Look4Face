@@ -27,13 +27,13 @@ def main(request):
     Arguments:
         request {[type]} -- [description]
     """
-    # ОТОБРАЖАЕМ СТРАНИЦУ
+    # SHOW MAIN PAGE
     if request.method == 'GET':
         context = {
             'title': 'Main',
             }
         return render(request, 'index.html', context)
-    # ЗАГРУЗИЛИ НОВУЮ ФОТКУ
+    # GOT NEW PHOTO
     elif request.method == 'POST':
         # INITIAL SEARCH
         if request.POST.get('refine') == "False":
@@ -79,7 +79,7 @@ def main(request):
             results_dict = results(D,I)
 
             context = {
-                'title': 'Результаты поиска',
+                'title': 'Search Results',
                 'results_dict': results_dict
             }
             return render(request, 'results.html', context)

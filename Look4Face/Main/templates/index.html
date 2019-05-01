@@ -3,7 +3,7 @@
 {% load staticfiles %}
 
 <div class="container">
-    <h2 align="center" class="tm-block-title">Загрузите фотографию человека из LFW. На изображении может быть несколько лиц.</h2>
+    <h2 align="center" class="tm-block-title">Load a photo of a person from LFW. The image may contain several faces.</h2>
     <br>
     <div class="tm-avatar-container">
     <form enctype="multipart/form-data" name="new_face" method="POST" action="">{% csrf_token %}
@@ -20,8 +20,7 @@
         </div>
     </div>
     <br>
-    {% comment %} <button id="searchbtn" class="btn btn-primary btn-block text-uppercase" disabled>Find similar</button> {% endcomment %}
-    <button id="searchbtn" class="btn btn-primary btn-block text-uppercase" disabled>Найти похожих</button>
+    <button id="searchbtn" class="btn btn-primary btn-block text-uppercase" disabled>Find similar</button>
     </form>
 </div>
 

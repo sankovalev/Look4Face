@@ -21,14 +21,6 @@ from django.urls import path
 from django.conf.urls.static import static
 
 urlpatterns = [
-    #Main
     url(r'^$', Main_views.main, name='Main Page'),
     url(r'^admin/', admin.site.urls, name='Admin Page'),
 ] + static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT) + static('dataset', document_root='dataset')
-
-#django_debug
-# if settings.DEBUG:
-#     import debug_toolbar
-#     urlpatterns = [
-#         path('__debug__/', include(debug_toolbar.urls)),
-#     ] + urlpatterns
