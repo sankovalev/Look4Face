@@ -22,6 +22,9 @@ DATASET_INDEX = settings.DATASET_INDEX
 DATASET_LABELS = settings.DATASET_LABELS
 BACKBONE_FILE = settings.BACKBONE_FILE
 CROPS_PATH = 'crops'
+if not os.path.exists(os.path.join(MEDIA_PATH, CROPS_PATH)):
+    os.makedirs(os.path.join(MEDIA_PATH, CROPS_PATH))
+
 reference = get_reference_facial_points(default_square = True)
 
 

@@ -1,5 +1,4 @@
 __pycache__
 .vscode
-!media/examples 
 *.so
 Look4Face/look4face.log
