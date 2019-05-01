@@ -101,7 +101,9 @@ USE_TZ = True
 DATASET_DIR = os.path.join(BASE_DIR, 'dataset')
 UTILS_DIR = os.path.join(BASE_DIR, 'utils')
 BACKBONE_DIR = os.path.join(BASE_DIR, 'backbone')
-
+DATASET_FOLDER = 'lfw'
+DATASET_INDEX = 'index.bin'
+DATASET_LABELS = 'labels.pkl'
 
 # Static files (CSS, JavaScript, Images)
 # https://docs.djangoproject.com/en/2.1/howto/static-files/

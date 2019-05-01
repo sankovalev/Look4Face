@@ -17,6 +17,9 @@ import datetime
 logging.basicConfig(filename="look4face.log", level=logging.INFO)
 MEDIA_PATH = settings.MEDIA_ROOT
 DATASET_PATH = settings.DATASET_DIR
+DATASET_NAME = settings.DATASET_FOLDER
+DATASET_INDEX = settings.DATASET_INDEX
+DATASET_LABELS = settings.DATASET_LABELS
 CROPS_PATH = 'crops'
 reference = get_reference_facial_points(default_square = True)
 
@@ -89,7 +92,7 @@ def search(img, k=10, nprobe=10):
     backbone = ResNet_50([112,112])
     pth = os.path.join(settings.BACKBONE_DIR, 'Backbone.pth') # Pretrained backbone for ResNet50
     
-    index = faiss.read_index(os.path.join(DATASET_PATH, 'index.bin')) # load index
+    index = faiss.read_index(os.path.join(DATASET_PATH, DATASET_INDEX)) # load index
     index_ivf = faiss.downcast_index(index.index)
     index_ivf.nprobe = nprobe # change nprobe
 
@@ -113,9 +116,9 @@ def results(D, I):
     proba_dict = {k: v for k, v in sorted(proba_dict.items(), key=lambda x: x[1], reverse=True)}
     total = sum(proba_dict.values(), 0.0)
     # read real names and rename keys
-    with open(os.path.join(DATASET_PATH, 'labels.pkl'), 'rb') as f:
+    with open(os.path.join(DATASET_PATH, DATASET_LABELS), 'rb') as f:
         names = pickle.load(f) # load real names
-    proba_dict = {names[k].replace('_', ' '): [round(v/total*100,2), os.path.join('dataset','lfw', str(k), random.choice(os.listdir(os.path.join(DATASET_PATH, 'lfw', str(k)))))] for k, v in proba_dict.items()} # 'name1':[probability1,photo1] ...
+    proba_dict = {names[k].replace('_', ' '): [round(v/total*100,2), os.path.join('dataset', DATASET_NAME, str(k), random.choice(os.listdir(os.path.join(DATASET_PATH, 'lfw', str(k)))))] for k, v in proba_dict.items()} # 'name1':[probability1,photo1] ...
     
     return proba_dict
 
