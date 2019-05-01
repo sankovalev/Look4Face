@@ -5,6 +5,7 @@ import numpy as np
 import os
 from torch.utils.data import Dataset
 from PIL import Image
+import pickle
 
 
 def l2_norm(input, axis = 1):
@@ -67,7 +68,7 @@ def extract_one_embedding(image, backbone, model_root,
     flipped = np.reshape(flipped, [1, 3, 112, 112])
 
     # load backbone from a checkpoint
-    backbone.load_state_dict(torch.load(model_root))
+    backbone.load_state_dict(torch.load(model_root, pickle_module=pickle))
     backbone.to(device)
 
     # extract features
