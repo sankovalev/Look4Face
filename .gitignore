@@ -1,4 +1,9 @@
-__pycache__
-.vscode
+__pycache__/
+.vscode/
 *.so
 Look4Face/look4face.log
+lib/
+lib64/
+pyvenv.cfg
+bin/
+include/
