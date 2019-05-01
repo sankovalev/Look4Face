@@ -10,14 +10,14 @@ Demo of Face Recognition web service.
 - [PyTorch](https://pytorch.org/) for working with neural networks.
 - [Faiss](https://github.com/facebookresearch/faiss) for ANN search + vector quantization.
 - ResNet50 pretrained on [MS1M-Arcface](https://github.com/deepinsight/insightface#train).
-- For **Linux** only.
+- For **Linux** and **Mac OS**.
 
 ![Multiple faces](https://github.com/sankovalev/Look4Face/blob/master/Look4Face/media/examples/Example2.gif)
 
 ## Installation
-Look4Face requires **CUDA** for efficient GPU computations.
+If you have CUDA installed, all calculations will be performed on the GPU, otherwise - on the CPU.
 
-1. Load [Git-LFS](https://git-lfs.github.com/)
+1. Install [Git-LFS](https://git-lfs.github.com/)
 
 2. Clone this repository and load LFS objects:
 ```sh
@@ -27,7 +27,7 @@ $ git lfs install
 $ git lfs pull
 ```
 
-3. Make virtualenv:
+3. Create virtualenv and activate it:
 ```sh
 $ virtualenv -p python3 Look4Face
 $ cd Look4Face
@@ -100,7 +100,7 @@ BACKBONE_FILE = 'your_backbone.pth'
 ### Todos
 
  - Write notification if there are no faces on photo.
- - Favicon
+ - Favicon.ico
  - Write tutorial about using own dataset.
 
 ### License
