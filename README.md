@@ -16,18 +16,41 @@ Demo of Face Recognition web service.
 
 ## Installation
 Look4Face requires **CUDA** for efficient GPU computations.
-This project has a virtual environment that already contains all the necessary packages.
 
-Clone this repository and activate virtual env from root folder:
+1. Load [Git-LFS](https://git-lfs.github.com/)
+
+2. Clone this repository and load LFS objects:
 ```sh
+$ git init .
+$ git clone https://github.com/sankovalev/Look4Face.git
+$ git lfs install
+$ git lfs pull
+```
+
+3. Make virtualenv:
+```sh
+$ virtualenv -p python3 Look4Face
+$ cd Look4Face
 $ source bin/activate
 ```
-Start web server
+
+4. Make sure that you are using python3 & pip3 from virtual environment:
+```sh
+$ which python3
+$ which pip3
+```
+
+5. Install all requirements:
+```sh
+$ pip3 install -r requirements.txt
+```
+
+6. Start web server
 ```sh
 $ cd Look4Face
-$ python manage.py runserver
+$ python3 manage.py runserver
 ```
-Open [127.0.0.1:8000](http://127.0.0.1:8000) with browser.
+7. Open [127.0.0.1:8000](http://127.0.0.1:8000) with browser.
 
 ### Installation issues
 If you receive an error related to Faiss, please visit [this link](https://github.com/onfido/faiss_prebuilt) and install additional packages.
