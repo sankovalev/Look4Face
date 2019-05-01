@@ -4,8 +4,6 @@ Demo of Face Recognition web service.
 ---
 ![One face](https://github.com/sankovalev/Look4Face/blob/master/Look4Face/media/examples/Example1.gif)
 
-![Multiple faces](https://github.com/sankovalev/Look4Face/blob/master/Look4Face/media/examples/Example2.gif)
-
 ## Briefly
 - The web wrapper is implemented using [Django 2.2](https://docs.djangoproject.com/en/2.2/releases/2.2/).
 - [LFW](http://vis-www.cs.umass.edu/lfw/) is used as a main dataset.
@@ -13,6 +11,8 @@ Demo of Face Recognition web service.
 - [Faiss](https://github.com/facebookresearch/faiss) for ANN search + vector quantization.
 - ResNet50 pretrained on [MS1M-Arcface](https://github.com/deepinsight/insightface#train).
 - For **Linux** only.
+
+![Multiple faces](https://github.com/sankovalev/Look4Face/blob/master/Look4Face/media/examples/Example2.gif)
 
 ## Installation
 Look4Face requires **CUDA** for efficient GPU computations.
