@@ -47,13 +47,13 @@ def main(request):
                 destination.write(image.read())
             img = Image.open(full_path)
             _, landmarks = detect_faces(img) #TODO: change onet/rnet/pnet path
-            count = landmarks.shape[0]
-            if count == 0:
+            if landmarks == []:
                 pass
                 # there are no faces on the photo
                 # TODO: send message
                 return redirect('Main Page')
-            elif count == 1:
+            count = landmarks.shape[0]
+            if count == 1:
                 img = align_face(img, landmarks[0]) # cropped aligned face, ready for search
                 D, I = search(img) # distances and indexes
                 results_dict = results(D,I)
@@ -110,7 +110,7 @@ def results(D, I):
     # calculate probabilities
     proba_dict = dict.fromkeys(list(set(lst)), 0.0)
     for i, label in enumerate(lst):
-        proba_dict[label] += 1/(i+1) # weight for each neighbour
+        proba_dict[label] += 1/((i+1)*D[i]) # weight for each neighbour
     proba_dict = {k: v for k, v in sorted(proba_dict.items(), key=lambda x: x[1], reverse=True)}
     total = sum(proba_dict.values(), 0.0)
     # read real names and rename keys
