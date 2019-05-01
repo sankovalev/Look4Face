@@ -3,7 +3,7 @@ __pycache__/
 *.so
 Look4Face/look4face.log
 lib/
-lib64/
+lib64
 pyvenv.cfg
 bin/
 include/
