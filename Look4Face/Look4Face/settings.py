@@ -104,6 +104,7 @@ BACKBONE_DIR = os.path.join(BASE_DIR, 'backbone')
 DATASET_FOLDER = 'lfw'
 DATASET_INDEX = 'index.bin'
 DATASET_LABELS = 'labels.pkl'
+BACKBONE_FILE = 'Backbone.pth'
 
 # Static files (CSS, JavaScript, Images)
 # https://docs.djangoproject.com/en/2.1/howto/static-files/

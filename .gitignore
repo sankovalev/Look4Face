@@ -1,4 +1,9 @@
 __pycache__
-media
+.vscode
+Look4Face/media/media_root/*
+!Look4Face/media/media_root/.gitkeep
+!Look4Face/media/media_root/crops/.gitkeep
+# Look4Face/media/media_root/crops/.gitkeep
+!media/examples 
 *.so
 Look4Face/look4face.log

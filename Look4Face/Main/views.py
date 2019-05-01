@@ -20,6 +20,7 @@ DATASET_PATH = settings.DATASET_DIR
 DATASET_NAME = settings.DATASET_FOLDER
 DATASET_INDEX = settings.DATASET_INDEX
 DATASET_LABELS = settings.DATASET_LABELS
+BACKBONE_FILE = settings.BACKBONE_FILE
 CROPS_PATH = 'crops'
 reference = get_reference_facial_points(default_square = True)
 
@@ -90,7 +91,7 @@ def main(request):
 
 def search(img, k=10, nprobe=10):
     backbone = ResNet_50([112,112])
-    pth = os.path.join(settings.BACKBONE_DIR, 'Backbone.pth') # Pretrained backbone for ResNet50
+    pth = os.path.join(settings.BACKBONE_DIR, BACKBONE_FILE) # Pretrained backbone for ResNet50
     
     index = faiss.read_index(os.path.join(DATASET_PATH, DATASET_INDEX)) # load index
     index_ivf = faiss.downcast_index(index.index)
