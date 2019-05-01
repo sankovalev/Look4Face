@@ -33,7 +33,6 @@ def main(request):
             'title': 'Main',
             }
         return render(request, 'index.html', context)
-
     # ЗАГРУЗИЛИ НОВУЮ ФОТКУ
     elif request.method == 'POST':
         # INITIAL SEARCH
