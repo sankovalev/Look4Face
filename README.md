@@ -58,10 +58,10 @@ If you receive an error related to Faiss, please visit [this link](https://githu
 ### Useful links 
 | Repo | Link |
 | ------ | ------ |
-| face.evoLVe.PyTorch | github.com/ZhaoJ9014/face.evoLVe.PyTorch |
-| facenet_pytorch | github.com/liorshk/facenet_pytorch |
-| arcface-pytorch | github.com/ronghuaiyang/arcface-pytorch |
-| insightface | github.com/deepinsight/insightface |
+| face.evoLVe.PyTorch | https://github.com/ZhaoJ9014/face.evoLVe.PyTorch |
+| facenet_pytorch | https://github.com/liorshk/facenet_pytorch |
+| arcface-pytorch | https://github.com/ronghuaiyang/arcface-pytorch |
+| insightface | https://github.com/deepinsight/insightface |
 
 ### How to use with other data
 I strongly recommend to use the [face.evoLVe.PyTorch](https://github.com/ZhaoJ9014/face.evoLVe.PyTorch) repository for train your own models.
