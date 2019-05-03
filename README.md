@@ -100,7 +100,6 @@ BACKBONE_FILE = 'your_backbone.pth'
 ### Todos
 
  - Write notification if there are no faces on photo.
- - Favicon.ico
  - Write tutorial about using own dataset.
 
 ### License
