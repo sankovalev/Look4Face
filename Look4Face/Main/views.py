@@ -14,6 +14,7 @@ import os
 import pickle
 import random
 import datetime
+# SOME SETTINGS
 logging.basicConfig(filename="look4face.log", level=logging.INFO)
 MEDIA_PATH = settings.MEDIA_ROOT
 DATASET_PATH = settings.DATASET_DIR
@@ -24,7 +25,6 @@ BACKBONE_FILE = settings.BACKBONE_FILE
 CROPS_PATH = 'crops'
 if not os.path.exists(os.path.join(MEDIA_PATH, CROPS_PATH)):
     os.makedirs(os.path.join(MEDIA_PATH, CROPS_PATH))
-
 reference = get_reference_facial_points(default_square = True)
 
 
@@ -32,7 +32,7 @@ def main(request):
     """Displays the main page
     
     Arguments:
-        request {[type]} -- [description]
+        request {request} -- GET or POST request
     """
     # SHOW MAIN PAGE
     if request.method == 'GET':
@@ -93,6 +93,19 @@ def main(request):
 
 
 def search(img, k=10, nprobe=10):
+    """Find k near neighbours in index
+    
+    Arguments:
+        img {PIL.Image} -- Face
+    
+    Keyword Arguments:
+        k {int} -- Count of nearest neighbours (default: {10})
+        nprobe {int} -- How many nearest clusters to scan (read in Faiss docs) (default: {10})
+    
+    Returns:
+        np.array -- k distances
+        np.array -- k indices
+    """
     backbone = ResNet_50([112,112])
     pth = os.path.join(settings.BACKBONE_DIR, BACKBONE_FILE) # Pretrained backbone for ResNet50
     
@@ -106,11 +119,14 @@ def search(img, k=10, nprobe=10):
 
 
 def results(D, I):
-    """Analyze neighbors
-    
+    """Analyze neighbors and get all meta info
+
     Arguments:
         D {np.array} -- Distances to neighbors
-        I {np.array} -- Indexes of neighbors 
+        I {np.array} -- Indices of neighbors 
+
+    Returns:
+        dict -- Info for results page; dict of real_name:[prob, picture]
     """
     lst = list(I)
     # calculate probabilities
@@ -122,12 +138,26 @@ def results(D, I):
     # read real names and rename keys
     with open(os.path.join(DATASET_PATH, DATASET_LABELS), 'rb') as f:
         names = pickle.load(f) # load real names
+    
+    # HELL LINE 
     proba_dict = {names[k].replace('_', ' '): [round(v/total*100,2), os.path.join('dataset', DATASET_NAME, str(k), random.choice(os.listdir(os.path.join(DATASET_PATH, 'lfw', str(k)))))] for k, v in proba_dict.items()} # 'name1':[probability1,photo1] ...
     
     return proba_dict
 
 
 def align_face(img, landmarks, crop_size=112):
+    """Align face on the photo
+    
+    Arguments:
+        img {PIL.Image} -- Image with face
+        landmarks {np.array} -- Key points
+    
+    Keyword Arguments:
+        crop_size {int} -- Size of face (default: {112})
+    
+    Returns:
+        PIL.Image -- Aligned face
+    """
     facial5points = [[landmarks[j], landmarks[j + 5]] for j in range(5)]
     warped_face = warp_and_crop_face(np.array(img), facial5points, reference, crop_size=(crop_size, crop_size))
     img_warped = Image.fromarray(warped_face)
@@ -135,6 +165,16 @@ def align_face(img, landmarks, crop_size=112):
 
 
 def refine_face(img, landmarks, image_path):
+    """Get all faces from image
+    
+    Arguments:
+        img {PIL.Image} -- Image with faces
+        landmarks {np.array} -- Key points
+        image_path {str} -- Relative path to image
+    
+    Returns:
+        list -- List of paths to all faces from photo
+    """
     count = landmarks.shape[0]
     face_urls = []
     for i in range(count):
