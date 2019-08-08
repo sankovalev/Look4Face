@@ -6,11 +6,9 @@ from collections import namedtuple
 
 
 # Support: ['IR_50', 'IR_101', 'IR_152', 'IR_SE_50', 'IR_SE_101', 'IR_SE_152']
-# Что такое IR и IR_SE сетки???
 
 class Flatten(Module):
     # Тензор ----> вектор
-    # Зачем, если в Pytorch он реализован??
     def forward(self, input):
         return input.view(input.size(0), -1)
 
@@ -190,7 +188,6 @@ class Backbone(Module):
                 if m.bias is not None:
                     m.bias.data.zero_()
 
-# 50 слоев
 def IR_50(input_size):
     """Constructs a ir-50 model.
     """
@@ -198,7 +195,6 @@ def IR_50(input_size):
 
     return model
 
-# 100 слоев
 def IR_101(input_size):
     """Constructs a ir-101 model.
     """
@@ -206,7 +202,6 @@ def IR_101(input_size):
 
     return model
 
-# 152 слоя
 def IR_152(input_size):
     """Constructs a ir-152 model.
     """
@@ -214,7 +209,6 @@ def IR_152(input_size):
 
     return model
 
-# 50 слоев
 def IR_SE_50(input_size):
     """Constructs a ir_se-50 model.
     """
@@ -222,7 +216,6 @@ def IR_SE_50(input_size):
 
     return model
 
-# 100 слоев
 def IR_SE_101(input_size):
     """Constructs a ir_se-101 model.
     """
@@ -230,7 +223,6 @@ def IR_SE_101(input_size):
 
     return model
 
-# 152 слоя
 def IR_SE_152(input_size):
     """Constructs a ir_se-152 model.
     """
