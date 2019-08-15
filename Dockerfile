@@ -15,4 +15,4 @@ ENTRYPOINT ["python3", "manage.py", "runserver"]
 
 #======
 #sudo docker build -t l4fimage .
-#sudo docker run -d -w home/Look4Face/Look4Face --name look4face -p 8000:8000 l4fimage 
+#sudo docker run -d -w home/Look4Face/Look4Face --name look4face -p 0.0.0.0:8000:8000 l4fimage 
