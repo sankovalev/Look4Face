@@ -14,6 +14,18 @@ Demo of Face Recognition web service.
 
 ![Multiple faces](https://github.com/sankovalev/Look4Face/blob/master/Look4Face/media/examples/Example2.gif)
 
+---
+## Easy using with Docker
+1. Build image from Dockerfile
+```sh
+$ docker build -t l4fimage .
+```
+
+2. Run container as daemon and expose 8000 port
+```sh
+$ docker run -d --name look4face -p 8000:8000 l4fimage
+```
+
 ## Installation
 If you have CUDA installed, all calculations will be performed on the GPU, otherwise - on the CPU.
 
@@ -62,7 +74,7 @@ If you receive an error related to Faiss, please visit [this link](https://githu
 | facenet_pytorch | https://github.com/liorshk/facenet_pytorch |
 | arcface-pytorch | https://github.com/ronghuaiyang/arcface-pytorch |
 | insightface | https://github.com/deepinsight/insightface |
-
+sudo docker build -t l4fimage .
 ### How to use with other data
 I strongly recommend to use the [face.evoLVe.PyTorch](https://github.com/ZhaoJ9014/face.evoLVe.PyTorch) repository for train your own models.
 1. Put your dataset to Look4Face/datasets with structure:
