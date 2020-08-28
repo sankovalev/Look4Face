@@ -14,9 +14,12 @@ import os
 import pickle
 import random
 import datetime
+
 # SOME SETTINGS
 logging.basicConfig(filename="look4face.log", level=logging.INFO)
+DATASET_ROOT = settings.DATASET_ROOT
 MEDIA_PATH = settings.MEDIA_ROOT
+MEDIA_URL = settings.MEDIA_URL
 DATASET_PATH = settings.DATASET_DIR
 DATASET_NAME = settings.DATASET_FOLDER
 DATASET_INDEX = settings.DATASET_INDEX
@@ -54,7 +57,6 @@ def main(request):
             img = Image.open(full_path)
             _, landmarks = detect_faces(img) #TODO: change onet/rnet/pnet path
             if landmarks == []:
-                pass
                 # there are no faces on the photo
                 # TODO: send message
                 return redirect('Main Page')
@@ -128,6 +130,11 @@ def results(D, I):
     Returns:
         dict -- Info for results page; dict of real_name:[prob, picture]
     """
+    def random_choice(dpath, dname, dfolder):
+        full_path = os.path.join(dpath, dname, str(dfolder))
+        images = os.listdir(full_path)
+        return random.choice(images)
+
     lst = list(I)
     # calculate probabilities
     proba_dict = dict.fromkeys(list(set(lst)), 0.0)
@@ -139,8 +146,12 @@ def results(D, I):
     with open(os.path.join(DATASET_PATH, DATASET_LABELS), 'rb') as f:
         names = pickle.load(f) # load real names
     
-    # HELL LINE 
-    proba_dict = {names[k].replace('_', ' '): [round(v/total*100,2), os.path.join('dataset', DATASET_NAME, str(k), random.choice(os.listdir(os.path.join(DATASET_PATH, 'lfw', str(k)))))] for k, v in proba_dict.items()} # 'name1':[probability1,photo1] ...
+    proba_dict = {
+        names[k].replace('_', ' '): [
+            round(v / total * 100, 2),
+            os.path.join(MEDIA_URL, DATASET_ROOT, DATASET_NAME, str(k), random_choice(DATASET_PATH, DATASET_NAME, k))
+            ] for k, v in proba_dict.items()
+        } # 'name1':[probability1,photo1] ...
     
     return proba_dict
 

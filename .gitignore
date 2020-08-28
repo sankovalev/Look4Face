@@ -1,9 +1,13 @@
 __pycache__/
+*.pth
 .vscode/
 *.so
+*.jpg
 Look4Face/look4face.log
+Look4Face/dataset/*
 lib/
 lib64
 pyvenv.cfg
 bin/
 include/
+!*.sh

@@ -85,7 +85,7 @@ def extract_one_embedding(image, backbone, model_root, size=112,
     flipped = np.reshape(flipped, [1, 3, size, size])
 
     # load backbone from a checkpoint
-    model = torch.load(model_root)
+    model = torch.load(model_root, map_location=device)
     backbone.load_state_dict(model)
     backbone.to(device)
 
