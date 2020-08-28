@@ -15,7 +15,7 @@ Demo of Face Recognition web service.
 ![Multiple faces](https://github.com/sankovalev/Look4Face/blob/master/Look4Face/media/examples/Example2.gif)
 
 ---
-## Easy using with Docker
+## Easy using with Docker [recommended]
 1. Build image from Dockerfile
 ```sh
 $ docker build -t l4fimage .
@@ -29,15 +29,15 @@ $ docker run -d --name look4face -p 8000:8000 l4fimage
 ## Installation
 If you have CUDA installed, all calculations will be performed on the GPU, otherwise - on the CPU.
 
-1. Install [Git-LFS](https://git-lfs.github.com/)
-
-2. Clone this repository and load LFS objects:
+1. Clone this repository:
 ```sh
-$ git init .
 $ git clone https://github.com/sankovalev/Look4Face.git
-$ git lfs install
-$ git lfs pull
 ```
+
+2. Load the [default backbone weights](https://drive.google.com/file/d/1pCY9sfBddk8Mj6HgSSWDz6GHmYAJIdGa) and the [lfw dataset](https://drive.google.com/file/d/1mZ0w7sVmoIb7jQtVXmJBReVcYz-GfW7v):
+- put _Backbone.pth_ into 'backbone' folder
+- unpack _dataset.zip_ and replace an empty 'media/media_root/dataset' folder
+You may change paths and filenames in Look4Face/Look4Face/settings.py
 
 3. Create virtualenv and activate it:
 ```sh
@@ -64,7 +64,7 @@ $ python3 manage.py runserver
 ```
 7. Open [127.0.0.1:8000](http://127.0.0.1:8000) with browser.
 
-### Installation issues
+### Installation issuesБыстрый старт в Docker
 If you receive an error related to Faiss, please visit [this link](https://github.com/onfido/faiss_prebuilt) and install additional packages.
 
 ### Useful links 
@@ -77,14 +77,14 @@ If you receive an error related to Faiss, please visit [this link](https://githu
 sudo docker build -t l4fimage .
 ### How to use with other data
 I strongly recommend to use the [face.evoLVe.PyTorch](https://github.com/ZhaoJ9014/face.evoLVe.PyTorch) repository for train your own models.
-1. Put your dataset to Look4Face/datasets with structure:
+1. Put your dataset to Look4Face/dataset with structure:
 ```
-  Look4Face/datasets/your_db/
+  Look4Face/dataset/your_db/
                       -> id1/
-                          -> 1.jpg
+                          -> filename_1.jpg
                           -> ...
                       -> id2/
-                          -> 1.jpg
+                          -> filename_1.jpg
                           -> ...
                       -> ...
                           -> ...

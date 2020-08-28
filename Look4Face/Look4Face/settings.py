@@ -97,15 +97,6 @@ USE_L10N = True
 
 USE_TZ = True
 
-# Face Recognition
-DATASET_DIR = os.path.join(BASE_DIR, 'dataset')
-UTILS_DIR = os.path.join(BASE_DIR, 'utils')
-BACKBONE_DIR = os.path.join(BASE_DIR, 'backbone')
-DATASET_FOLDER = 'lfw'
-DATASET_INDEX = 'index.bin'
-DATASET_LABELS = 'labels.pkl'
-BACKBONE_FILE = 'Backbone.pth'
-
 # Static files (CSS, JavaScript, Images)
 # https://docs.djangoproject.com/en/2.1/howto/static-files/
 TEMPLATE_DIRS = (os.path.join(BASE_DIR, 'templates'),)
@@ -116,3 +107,19 @@ STATIC_ROOT = os.path.join(BASE_DIR, 'static', 'static_root')
 
 MEDIA_ROOT = os.path.join(BASE_DIR, 'media', 'media_root')
 MEDIA_URL = '/media/'
+
+# Face Recognition
+DETECTOR_WEIGHTS = {
+    'rnet': os.path.join(BASE_DIR, 'align', 'rnet.npy'),
+    'onet': os.path.join(BASE_DIR, 'align', 'onet.npy'),
+    'pnet': os.path.join(BASE_DIR, 'align', 'pnet.npy')
+}
+
+DATASET_ROOT = 'dataset'
+DATASET_DIR = os.path.join(MEDIA_ROOT, DATASET_ROOT)
+DATASET_FOLDER = 'lfw'
+DATASET_INDEX = 'index.bin'
+DATASET_LABELS = 'labels.pkl'
+
+BACKBONE_DIR = os.path.join(BASE_DIR, 'backbone')
+BACKBONE_FILE = 'Backbone.pth'

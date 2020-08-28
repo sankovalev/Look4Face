@@ -8,7 +8,7 @@
         <div class="col-sm-12 col-md-12 col-lg-12 col-xl-12 tm-block-col">
         {% for name, data in results_dict.items %}
             <div class="media tm-notification-item">
-                <div class="tm-gray-circle"><img src="{{data.1}}" alt="Avatar Image" class="rounded-circle avatar"></div>
+                <div class="tm-gray-circle"><img src="{{data.1}}" alt="{{name}}" class="rounded-circle avatar"></div>
                 <div class="media-body">
                     <p class="mb-2"><h2><b>{{name}}</b></h2></p>
                     <span class="tm-small tm-text-color-secondary"><h4>Confidence <font color="#f5a623">{{data.0}}%</font></h4></span>

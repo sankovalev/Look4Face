@@ -1,16 +1,14 @@
-FROM ubuntu:18.04
-RUN apt-get update && apt-get -y install curl git git-lfs python3 python3-pip \
-    && curl -s https://packagecloud.io/install/repositories/github/git-lfs/script.deb.sh \
-    && cd /opt \
-    && git clone https://github.com/sankovalev/Look4Face.git \
-    && cd /opt/Look4Face \
-    && git lfs install \
+FROM python:3.7-slim
+COPY Look4Face /opt/Look4Face
+COPY requirements.txt /opt/requirements.txt
+RUN apt-get update && apt-get -y install curl git unzip \
     && apt-get install -y libsm6 libxext6 libxrender-dev libomp-dev \
-    && apt-get install -y libopenblas-base \
-    && git lfs pull \
-    && pip3 install -r /opt/Look4Face/requirements.txt
+    && apt-get install -y libopenblas-base libglib2.0-0 \
+    && pip install -r /opt/requirements.txt
+RUN cd /opt/Look4Face/backbone/ && sh load_backbone.sh 
+RUN cd /opt/Look4Face/media/media_root/dataset/ && sh load_dataset.sh
 CMD ["0.0.0.0:8000"]
-ENTRYPOINT ["python3", "/opt/Look4Face/Look4Face/manage.py", "runserver"]
+ENTRYPOINT ["python", "/opt/Look4Face/manage.py", "runserver"]
 
 #======
 #sudo docker build -t l4fimage .
