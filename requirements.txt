@@ -1,6 +1,6 @@
 Django==2.2.13
 faiss-cpu==1.6.3
-numpy==1.17.3
+numpy==1.22.0
 opencv-python==4.2.0.34
 Pillow>=7.1.0
 python-dateutil==2.8.0
